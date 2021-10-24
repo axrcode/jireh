@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!--    Icono de la Aplicación      -->
-    <link rel="icon" type="image/x-icon" href="/icons/favicon.png" />
+    <link rel="icon" type="image/x-icon" href="/system/logo/favicon.png" />
 
     <!--    CSRF Token                  -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

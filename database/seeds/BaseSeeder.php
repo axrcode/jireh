@@ -24,7 +24,7 @@ class BaseSeeder extends Seeder
             'gerente' => '',
             'email' => '',
             'website' => '',
-            'logo' => '/icons/logo.png',
+            'logo' => '/system/logo/logo.png',
             'slogan' => 'Comercializadora Jireh Slogan',
             'whatsapp' => '',
         ]);
