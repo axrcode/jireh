@@ -68020,10 +68020,7 @@ a.text-dark:focus {
 }
 
 .bg-drawer {
-  background: url("/img/background/drawer.png") #343A40;
-  background-position: top left;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #343A40;
 }
 
 .bg-inscripciones {

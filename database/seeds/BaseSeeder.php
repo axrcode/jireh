@@ -30,7 +30,7 @@ class BaseSeeder extends Seeder
         ]);
 
         CicloEscolar::create([
-            'ciclo' => '2022'
+            'ciclo' => '2021'
         ]);
 
         Unidad::create([
@@ -48,10 +48,10 @@ class BaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Axel Roberto Castillo Vargas',
-            'user' => 'ADMINCBP',
+            'name' => 'Administrador',
+            'user' => 'ADMIN',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('CBPmazateADMIN2021'),
+            'password' => Hash::make('ADMIN'),
             'credential' => 'ADMIN',
         ])->assignRole('Super Administrador');
     }

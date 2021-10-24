@@ -7,6 +7,7 @@
                 src="{{ $empresa->logo }}"
                 alt="AdminLTE Logo"
                 class="img-size-60"
+                style="filter: hue-rotate(60deg) brightness(500%)"
             >
         </a>
     </div>

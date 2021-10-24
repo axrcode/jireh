@@ -1,8 +1,5 @@
 .bg-drawer {
-    background: url('/img/background/drawer.png') $drawer-color;
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: $drawer-color;
 }
 
 .bg-inscripciones {
