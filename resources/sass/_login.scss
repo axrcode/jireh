@@ -1,0 +1,43 @@
+.bg-login {
+    background: $gris;
+}
+
+.bg-gris-login {
+    background-color: $gris !important;
+}
+
+.img-login {
+    width: 90%;
+}
+
+.img-login-2 {
+    width: 70%;
+}
+
+.img-size-60 {
+    width: 60px;
+    height: auto;
+}
+
+.text-amber {
+    color: $amber;
+}
+
+.icon-password {
+    position: absolute;
+    right: 15px;
+    transform: translate(0, -50%);
+    top: 40%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+@media (min-width: 600px) {
+
+    .bg-login {
+        background: url('/system/background/login.png') $drawer-color;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

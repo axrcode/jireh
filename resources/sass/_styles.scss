@@ -1,0 +1,71 @@
+.bg-drawer {
+    background: url('/img/background/drawer.png') $drawer-color;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-inscripciones {
+    background: url('/img/background/inscripciones.png') $drawer-color;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-pin-validation {
+    background: url('/img/background/inscirpciones-mobile.png') $gris;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-brand-drawer {
+    background-color: $drawer-color;
+    border-bottom: 2px grey solid;
+}
+
+.hover-table .item {
+    &:hover {
+        background-color: $gris-hover;
+    }
+}
+
+.upload-box {
+    background: $gris;
+    border-radius: 50px;
+    width: 350px;
+    outline: none;
+}
+
+.encabezado-inscripciones {
+    background: url('/img/background/inscripciones-form.png') $gris;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 60px 0;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+::-webkit-file-upload-button {
+    color: white;
+    background: $blue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    &:hover {
+        background: $cyan;
+    }
+}
+
+@media (min-width: 600px) {
+
+    .bg-pin-validation {
+        background: $gris !important;
+    }
+}
