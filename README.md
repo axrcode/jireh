@@ -6,11 +6,9 @@
     </a>    
 </p>
 
-# Sistema Control Académico Colegio "Blaise Pascal"
+# PROYECTO DE GRADUACIÓN
 
-Código fuente utilizado para el sistema web para Control y Gestión  Administrativo de Colegio Científico y Tecnológico "Blaise Pascal". Software para control académico entre docentes y estudiantes / padres de familia. Elaborado bajo el lenguaje de programación <b>PHP</b> y el framework <b>Laravel</b>
-
-Configurar las variables de entorno: Copiar el archivo <b>.env.example</b>
+Código fuente utilizado para la implementación de un sistema web para Control y Gestión de la materia prima de una Comercializadora dedicada a la producción de materiales e insumos para elaboración de productos textíles y de serigrafía. Elaborado bajo el lenguaje de programación <b>PHP</b> y el framework <b>Laravel</b>
 
 ## PAQUETES UTILIZADOS
 
@@ -18,8 +16,6 @@ Configurar las variables de entorno: Copiar el archivo <b>.env.example</b>
 
 - Laravel UI
 - Laraveles Spanish
-- Laravel Permission
-- Laravel PDF (Niklaravnsborg)
 
 ```md
 composer install
