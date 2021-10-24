@@ -68020,11 +68020,11 @@ a.text-dark:focus {
 }
 
 .bg-drawer {
-  background: #343A40;
+  background: #1B1D24;
 }
 
 .bg-inscripciones {
-  background: url("/img/background/inscripciones.png") #343A40;
+  background: url("/img/background/inscripciones.png") #1B1D24;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -68038,8 +68038,7 @@ a.text-dark:focus {
 }
 
 .bg-brand-drawer {
-  background-color: #343A40;
-  border-bottom: 2px grey solid;
+  background-color: #1B1D24;
 }
 
 .hover-table .item:hover {
@@ -68122,7 +68121,7 @@ a.text-dark:focus {
 
 @media (min-width: 600px) {
   .bg-login {
-    background: url("/system/background/login.png") #343A40;
+    background: url("/system/background/login.png") #1B1D24;
     background-position: top left;
     background-repeat: no-repeat;
     background-size: cover;
