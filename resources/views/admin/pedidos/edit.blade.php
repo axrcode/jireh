@@ -43,8 +43,9 @@
                         <div class="card shadow-none">
                             <div class="card-body">
 
-                                <form action="{{ route('admin.pedidos.store') }}" method="POST">
+                                <form action="{{ route('admin.pedidos.update', [$pedido->id]) }}" method="POST">
                                     @csrf
+                                    @method('PUT')
 
                                     <div class="row">
 
@@ -113,7 +114,7 @@
 
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary btn-flat btn-sm px-3">Guardar</button>
+                                    <button type="submit" class="btn btn-primary btn-flat btn-sm px-3">Actualizar</button>
 
                                 </form>
 

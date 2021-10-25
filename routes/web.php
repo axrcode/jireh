@@ -29,12 +29,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::delete('/pedidos/{pedido}/detalle/{detalle}', 'PedidoController@detalle_destroy')->name('admin.pedidos.detalle.destroy');
 
 
+    Route::put('/pedidos/{pedido}', 'PedidoController@update')->name('admin.pedidos.update');
 
 
     Route::get('/pedidos/crear', 'PedidoController@create')->name('admin.pedidos.create');
-    Route::get('/pedidos/{pedido}', 'PedidoController@show')->name('admin.pedidos.show');
-    Route::get('/pedidos/{pedido}/detalle', 'PedidoController@detalle')->name('admin.pedidos.detalle');
-    Route::put('/pedidos/{pedido}', 'PedidoController@update')->name('admin.pedidos.update');
+    Route::get('/pedidos/{pedido}', 'PedidoController@sWhow')->name('admin.pedidos.show');
     Route::delete('/pedidos/{pedido}', 'PedidoController@destroy')->name('admin.pedidos.destroy');
 
 

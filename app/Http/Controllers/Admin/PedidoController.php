@@ -66,18 +66,7 @@ class PedidoController extends Controller
 
         DB::commit();
 
-        return redirect()->route('admin.pedidos.detalle', [$pedido->id]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pedido  $pedido
-     * @return \Illuminate\Http\Response
-     */
-    public function detalle(Pedido $pedido)
-    {
-        return $pedido;
+        return redirect()->route('admin.pedidos.edit', [$pedido->id]);
     }
 
     /**
@@ -120,7 +109,22 @@ class PedidoController extends Controller
      */
     public function update(Request $request, Pedido $pedido)
     {
-        //
+        DB::beginTransaction();
+
+        $pedido->titulo = $request->titulo;
+        $pedido->descripcion = $request->descripcion;
+        $pedido->fecha_pedido = $request->fecha_pedido;
+        $pedido->cliente_id = $request->cliente;
+        $pedido->save();
+
+        DB::commit();
+
+        return redirect()
+        ->route('admin.pedidos.edit', [$pedido->id])
+        ->with('process_result', [
+            'status' => 'success',
+            'content' => 'Pedido actualizado'
+        ]);
     }
 
     /**
