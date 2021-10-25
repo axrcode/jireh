@@ -68106,6 +68106,11 @@ a.text-dark:focus {
   height: auto;
 }
 
+.img-size-100 {
+  width: 100px;
+  height: auto;
+}
+
 .text-amber {
   color: #ffc107;
 }

@@ -54,9 +54,12 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+        $correlative = intval(Pedido::max(DB::Raw('coalesce(correlative,0)')))+1;
+
         DB::beginTransaction();
 
         $pedido = new Pedido;
+        $pedido->correlative = $correlative;
         $pedido->titulo = $request->titulo;
         $pedido->descripcion = $request->descripcion;
         $pedido->fecha_pedido = $request->fecha_pedido;
@@ -77,7 +80,10 @@ class PedidoController extends Controller
      */
     public function show(Pedido $pedido)
     {
-        return $pedido;
+        return view('admin.pedidos.show', [
+            'pedido' => $pedido,
+            'empresa' => $this->empresa
+        ]);
     }
 
     /**

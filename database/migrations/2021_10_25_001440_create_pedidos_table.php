@@ -15,6 +15,7 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
+            $table->integer('correlative')->nullable();
             $table->string('titulo');
             $table->text('descripcion')->nullable();
             $table->string('fecha_pedido')->nullable();
