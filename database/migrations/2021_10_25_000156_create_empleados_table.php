@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateColaboradorsTable extends Migration
+class CreateEmpleadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,27 +13,19 @@ class CreateColaboradorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('colaboradores', function (Blueprint $table) {
-            $table->integer('id')->unique();
-            $table->string('codigo_empleado');
+        Schema::create('empleados', function (Blueprint $table) {
+            $table->id();
             $table->string('nombre');
             $table->string('apellido');
-            $table->string('fotografia')->default('/img/profile-default.jpg');
             $table->string('dpi')->nullable();
-            $table->string('fecha_nacimiento');
+            $table->string('fecha_nacimiento')->nullable();
             $table->string('direccion')->nullable();
-            $table->string('ps');
-            $table->string('telefono');
-            $table->string('telefono_emergencia')->nullable();
-            $table->string('email');
-            $table->string('profesion')->nullable();
-            $table->string('estudios')->nullable();
-            $table->string('universidad')->nullable();
-            $table->string('ultimo_anio_universidad')->nullable();
+            $table->string('telefono')->nullable();
             $table->string('cargo')->nullable();
             $table->string('fecha_alta')->nullable();
             $table->string('estado')->default('activo');
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('departamento_id')->references('id')->on('departamentos');
             $table->timestamps();
         });
     }
@@ -45,6 +37,6 @@ class CreateColaboradorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('colaboradores');
+        Schema::dropIfExists('empleados');
     }
 }

@@ -34,14 +34,15 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column nav-flat text-sm" data-widget="treeview" role="menu" data-accordion="false">
 
+                @include('layouts.options')
                 <!-- Opciones de Administrador -->
-                @include('layouts.options_admin')
+                {{-- @include('layouts.options_admin') --}}
 
                 <!-- Opciones de Estudiante -->
-                @include('layouts.options_estudiante')
+                {{-- @include('layouts.options_estudiante') --}}
 
                 <!-- Opciones de Docente -->
-                @include('layouts.options_docente')
+                {{-- @include('layouts.options_docente') --}}
 
             </ul>
         </nav>

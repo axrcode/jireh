@@ -90,7 +90,7 @@
                             <div class="small-box bg-gradient-indigo">
                                 <div class="inner">
                                     <h3>{{ $total_inscripciones }}</h3>
-                                    <p>{{ __('Inscriptions') }} {{ $academico_actual->cicloinscripciones->ciclo }}</p>
+                                    <p>Inscripciones</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fas fa-file-signature"></i>

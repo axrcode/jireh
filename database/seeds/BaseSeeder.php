@@ -29,24 +29,6 @@ class BaseSeeder extends Seeder
             'whatsapp' => '',
         ]);
 
-        CicloEscolar::create([
-            'ciclo' => '2021'
-        ]);
-
-        Unidad::create([
-            'unidad' => 'Primera Unidad',
-            'nota_maxima' => '100',
-            'nota_aprobado' => '60',
-            'ponderacion' => '25%',
-        ]);
-
-        Academico::create([
-            'cicloescolar_id' => 1,
-            'unidad_id' => 1,
-            'empresa_id' => 1,
-            'cicloinscripciones_id' => 1,
-        ]);
-
         User::create([
             'name' => 'Administrador',
             'user' => 'ADMIN',

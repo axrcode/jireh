@@ -24,8 +24,7 @@ class HomeController extends Controller
         switch ( $rol_usuario )
         {
             case 'Super Administrador':
-            case 'Administrador':
-            case 'Secretaria':
+            case 'Empleado':
                 return redirect()->route('admin.dashboard.index');
                 break;
             case 'Docente':

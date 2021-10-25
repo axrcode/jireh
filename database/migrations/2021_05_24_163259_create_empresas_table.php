@@ -23,6 +23,12 @@ class CreateEmpresasTable extends Migration
             $table->string('website')->nullable();
             $table->string('logo')->nullable();
             $table->text('slogan')->nullable();
+            $table->string('telefono_secundario')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamps();
         });
     }

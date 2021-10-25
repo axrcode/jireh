@@ -14,13 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/inscripcion', 'InscripcionController@index')->name('public.inscripcion.index');
-Route::post('/inscripcion', 'InscripcionController@validacion')->name('public.inscripcion.validacion');
 
-Route::get('/inscripcion/crear', 'InscripcionController@create')->name('public.inscripcion.create');
-Route::post('/inscripcion/crear', 'InscripcionController@store')->name('public.inscripcion.store');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth'], function()
+{
+    //  Dashboard's Methods
+    Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard.index');
 
-Route::get('/inscripcion/grado', 'InscripcionController@seleccionar_grado')->name('public.inscripcion.grado');
-Route::post('/inscripcion/grado', 'InscripcionController@asignar_grado')->name('public.inscripcion.grado.save');
-
-Route::get('/inscripcion/exitosa', 'InscripcionController@exitosa')->name('public.inscripcion.exitosa');
+    Route::get('/pedidos', 'PedidoController@index')->name('admin.pedidos.index');
+});
