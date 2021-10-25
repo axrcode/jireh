@@ -244,11 +244,13 @@
                                                             </button>
 
                                                             <!-- Modal Eliminar Detalle Pedido -->
-                                                            {{-- <div class="modal fade" id="modalEliminarDetalle_{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                            <div class="modal fade" id="modalEliminarDetalle_{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
-                                                                        <form action="{{ route('admin.pedidos.detalle.store', [$pedido->id]) }}" method="POST">
+                                                                        <form action="{{ route('admin.pedidos.detalle.destroy', [$pedido->id, $item->id]) }}" method="POST">
                                                                             @csrf
+                                                                            @method('DELETE')
+
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title" id="exampleModalLabel">Editar Detalle del Pedido</h5>
                                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -264,12 +266,12 @@
                                                                             </div>
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-secondary btn-flat px-3" data-dismiss="modal">Cancelar</button>
-                                                                                <button type="submit" class="btn btn-primary btn-flat px-3">Guardar</button>
+                                                                                <button type="submit" class="btn btn-danger btn-flat px-3">Confirmar</button>
                                                                             </div>
                                                                         </form>
                                                                     </div>
                                                                 </div>
-                                                            </div> --}}
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach

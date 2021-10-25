@@ -169,4 +169,13 @@ class PedidoController extends Controller
 
         return redirect()->route('admin.pedidos.edit', [$pedido->id]);
     }
+
+    public function detalle_destroy(Pedido $pedido, DetallePedido $detalle)
+    {
+        DB::beginTransaction();
+        $detalle->delete();
+        DB::commit();
+
+        return redirect()->route('admin.pedidos.edit', [$pedido->id]);
+    }
 }
