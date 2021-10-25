@@ -347,7 +347,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('scripts/colaboradores-datatable.js') }}"></script>
+    <script src="{{ secure_asset('scripts/colaboradores-datatable.js') }}"></script>
 
     @include('extensions.toast-process-result')
 

@@ -123,7 +123,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('scripts/cambiar_grado_estudiante-datatable.js') }}"></script>
+    <script src="{{ secure_asset('scripts/cambiar_grado_estudiante-datatable.js') }}"></script>
 
     @include('extensions.toast-process-result')
 

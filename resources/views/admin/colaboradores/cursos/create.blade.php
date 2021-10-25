@@ -130,7 +130,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('scripts/principal-datatable.js') }}"></script>
+    <script src="{{ secure_asset('scripts/principal-datatable.js') }}"></script>
 
     <script>
         $(function () {
