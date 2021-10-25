@@ -3,11 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Empresa;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
 {
+    private $empresa;
+    public function __construct()
+    {
+        //  Company Information
+        $this->empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +23,10 @@ class PedidoController extends Controller
      */
     public function index()
     {
-        $grados = Pedido::all();
+        $pedidos = Pedido::all();
 
         return view('admin.grados.index', [
-            'grados' => $grados,
+            'pedidos' => $pedidos,
             'empresa' => $this->empresa
         ]);
     }

@@ -2,7 +2,7 @@
 
 @section('head')
 
-    <title>{{ __('Grade') }} - {{ config('app.name', 'Sistema') }}</title>
+    <title>Pedidos - {{ config('app.name', 'Sistema') }}</title>
 
 @endsection
 
@@ -25,8 +25,8 @@
                 <div class="row mb-2">
                     <div class="col-12">
                         <h1 class="font-weight-bold m-0">
-                            <i class="fas fa-th-list mr-1"></i>
-                            {{ __('Grade') }}
+                            <i class="fas fa-cart-arrow-down mr-1"></i>
+                            Pedidos
                         </h1>
                     </div>
                 </div>
@@ -44,15 +44,15 @@
                             <div class="card-body">
 
                                 <div class="row">
-                                    @can('admin.grado.create')
+
                                         <div class="col-md-4">
                                             <a  href="{{ route('admin.grado.create') }}"
                                                 class="btn btn-success btn-sm btn-flat px-3">
                                                 <i class="fas fa-plus-square mr-2"></i>
-                                                {{ __('Create Grade') }}
+                                                Crear nuevo pedido
                                             </a>
                                         </div>
-                                    @endcan
+
                                 </div>
 
                             </div>
@@ -67,20 +67,20 @@
                                 <table id="principal" class="table hover-table display nowrap" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th style="width: 40%">
-                                                {{ __('Name Grade or Career') }}
+                                            <th style="width: 30%">
+                                                Título del Pedido
                                             </th>
-                                            <th style="width: 10%">
-                                                {{ __('Section') }}
+                                            <th style="width: 15%">
+                                                Cliente
                                             </th>
                                             <th style="width: 20%">
-                                                {{ __('Level')  }}
+                                                Fecha del Pedido
+                                            </th>
+                                            <th style="width: 15%">
+                                                Empleado Asignado
                                             </th>
                                             <th style="width: 10%">
-                                                {{ __('Students') }}
-                                            </th>
-                                            <th style="width: 10%">
-                                                {{ __('Courses') }}
+                                                Estado del Pedido
                                             </th>
                                             <th style="width: 10%">
                                                 {{ __('Actions') }}
@@ -89,34 +89,48 @@
                                     </thead>
                                     <tbody>
 
-                                        @foreach ($grados as $grado)
+                                        @foreach ($pedidos as $pedido)
                                             <tr class="item">
                                                 <td class="bg-light">
-                                                    @can('admin.grado.show')
-                                                        <a  href="{{ route('admin.grado.show', [$grado->id]) }}"
+
+                                                        <a  href="{{ route('admin.pedidos.show', [$pedido->id]) }}"
                                                             class="text-dark font-weight-bold text-wrap">
-                                                            {{ $grado->nombre }}
+                                                            {{ $pedido->titulo }}
                                                         </a>
-                                                    @endcan
+
                                                 </td>
                                                 <td class="text-center text-md-left">
-                                                    {{ $grado->seccion }}
+                                                    {{ $pedido->cliente->nombre }} {{ $pedido->cliente->apellido }}
                                                 </td>
                                                 <td>
-                                                    {{ $grado->nivel }}
+                                                    {{ $pedido->fecha_pedido }}
                                                 </td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>
+                                                    {{ $pedido->empleado->nombre }} {{ $pedido->empleado->apellido }}
+                                                </td>
+                                                <td>
+                                                    <span class="text-capitalize badge
+                                                        @if ( $pedido->estado == 'pendiente' )
+                                                            badge-danger
+                                                        @elseif ( $pedido->estado == 'proceso' )
+                                                            badge-warning
+                                                        @elseif ( $pedido->estado == 'entregado' )
+                                                            badge-success
+                                                        @endif">
+                                                        {{ $pedido->estado }}
+                                                    </span>
+
+                                                </td>
                                                 <td class="text-right">
-                                                    @can('admin.grado.show')
-                                                        <a  href="{{ route('admin.grado.show', [$grado->id]) }}"
+
+                                                        <a  href="{{ route('admin.pedidos.show', [$pedido->id]) }}"
                                                             class="btn btn-success btn-sm btn-flat px-3"
                                                             data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
                                                         >
                                                             <i class="fas fa-id-card mr-2"></i>
                                                             {{ __('Card') }}
                                                         </a>
-                                                    @endcan
+
                                                 </td>
                                             </tr>
                                         @endforeach
