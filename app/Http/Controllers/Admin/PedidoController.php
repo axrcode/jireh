@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cliente;
 use App\Models\Empresa;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PedidoController extends Controller
 {
@@ -24,9 +26,11 @@ class PedidoController extends Controller
     public function index()
     {
         $pedidos = Pedido::all();
+        $clientes = Cliente::all();
 
         return view('admin.grados.index', [
             'pedidos' => $pedidos,
+            'clientes' => $clientes,
             'empresa' => $this->empresa
         ]);
     }
@@ -49,7 +53,30 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::beginTransaction();
+
+        $pedido = new Pedido;
+        $pedido->titulo = $request->titulo;
+        $pedido->descripcion = $request->descripcion;
+        $pedido->fecha_pedido = $request->fecha_pedido;
+        $pedido->empleado_id = auth()->user()->id;
+        $pedido->cliente_id = $request->cliente;
+        $pedido->save();
+
+        DB::commit();
+
+        return redirect()->route('admin.pedidos.detalle', [$pedido->id]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Pedido  $pedido
+     * @return \Illuminate\Http\Response
+     */
+    public function detalle(Pedido $pedido)
+    {
+        return $pedido;
     }
 
     /**
@@ -71,7 +98,7 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        //
+        return $pedido;
     }
 
     /**

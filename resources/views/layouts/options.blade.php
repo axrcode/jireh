@@ -9,7 +9,7 @@
             </p>
         </a>
 
-        @can('admin.configuracion.generales')
+
             <ul class="nav nav-treeview">
                 <li class="nav-item">
                     <a href="{{ route('admin.configuracion.generales') }}" class="nav-link">
@@ -18,7 +18,7 @@
                     </a>
                 </li>
             </ul>
-        @endcan
+
     </li>
 
 
