@@ -125,11 +125,17 @@
                                                 <td class="text-right">
 
                                                         <a  href="{{ route('admin.pedidos.show', [$pedido->id]) }}"
-                                                            class="btn btn-success btn-sm btn-flat px-3"
+                                                            class="btn btn-success btn-sm btn-flat"
                                                             data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
                                                         >
-                                                            <i class="fas fa-id-card mr-2"></i>
-                                                            {{ __('Card') }}
+                                                            <i class="fas fa-id-card"></i>
+                                                        </a>
+
+                                                        <a  href="{{ route('admin.pedidos.edit', [$pedido->id]) }}"
+                                                            class="btn btn-primary btn-sm btn-flat"
+                                                            data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
+                                                        >
+                                                            <i class="fas fa-edit"></i>
                                                         </a>
 
                                                 </td>
