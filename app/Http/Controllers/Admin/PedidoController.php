@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cliente;
+use App\Models\DetallePedido;
 use App\Models\Empresa;
 use App\Models\Pedido;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class PedidoController extends Controller
         $pedidos = Pedido::all();
         $clientes = Cliente::all();
 
-        return view('admin.grados.index', [
+        return view('admin.pedidos.index', [
             'pedidos' => $pedidos,
             'clientes' => $clientes,
             'empresa' => $this->empresa
@@ -98,7 +99,16 @@ class PedidoController extends Controller
      */
     public function edit(Pedido $pedido)
     {
-        return $pedido;
+        $clientes = Cliente::all();
+
+        $detalle_pedido = DetallePedido::where(['pedido_id' => $pedido->id])->get();
+
+        return view('admin.pedidos.edit', [
+            'pedido' => $pedido,
+            'detalle_pedido' => $detalle_pedido,
+            'clientes' => $clientes,
+            'empresa' => $this->empresa
+        ]);
     }
 
     /**
@@ -122,5 +132,27 @@ class PedidoController extends Controller
     public function destroy(Pedido $pedido)
     {
         //
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Metodos para Detalle Pedido
+    |--------------------------------------------------------------------------
+    */
+
+    public function detalle_store(Request $request, Pedido $pedido)
+    {
+        DB::beginTransaction();
+
+        $detalle_pedido = new DetallePedido;
+        $detalle_pedido->pedido_id = $pedido->id;
+        $detalle_pedido->talla = $request->talla;
+        $detalle_pedido->cantidad = $request->cantidad;
+        $detalle_pedido->descripcion = $request->descripcion;
+        $detalle_pedido->save();
+
+        DB::commit();
+
+        return redirect()->route('admin.pedidos.edit', [$pedido->id]);
     }
 }
