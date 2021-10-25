@@ -114,8 +114,13 @@
 
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary btn-flat btn-sm px-3">Actualizar</button>
-
+                                    <button type="submit" class="btn btn-primary btn-flat btn-sm px-3">
+                                        Actualizar
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-sm btn-flat px-3"
+                                        data-toggle="modal" data-target="#modalEliminarPedido">
+                                        Eliminar
+                                    </button>
                                 </form>
 
                             </div>
@@ -369,6 +374,32 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-flat px-3" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary btn-flat px-3">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Eliminar Pedido -->
+    <div class="modal fade" id="modalEliminarPedido" tabindex="-1" aria-labelledby="modalEliminarPedido" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="{{ route('admin.pedidos.destroy', [$pedido->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Pedido</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿ Está seguro que desea eliminar el pedido ? <br>
+                        <b>Se borrará toda la información relacionada a él</b>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-flat px-3" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger btn-flat px-3">Confirmar</button>
                     </div>
                 </form>
             </div>

@@ -46,7 +46,6 @@
                                 <div class="row">
 
                                         <div class="col-md-4">
-                                            <!-- Button trigger modal -->
                                             <button type="button"
                                                 class="btn btn-primary btn-sm btn-flat px-3" data-toggle="modal" data-target="#modalCrearPedido">
                                                 <i class="fas fa-plus-square mr-2"></i>

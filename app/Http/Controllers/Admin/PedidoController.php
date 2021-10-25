@@ -141,7 +141,16 @@ class PedidoController extends Controller
      */
     public function destroy(Pedido $pedido)
     {
-        //
+        DB::beginTransaction();
+        foreach ($pedido->detallePedido as $item)
+        {
+            $item->delete();
+        }
+
+        $pedido->delete();
+        DB::commit();
+
+        return redirect()->route('admin.pedidos.index');
     }
 
     /*
