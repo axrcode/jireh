@@ -17,4 +17,9 @@ class Pedido extends Model
     {
         return $this->belongsTo(Cliente::class);
     }
+
+    public function detallePedido()
+    {
+        return $this->hasMany(DetallePedido::class);
+    }
 }
