@@ -155,4 +155,18 @@ class PedidoController extends Controller
 
         return redirect()->route('admin.pedidos.edit', [$pedido->id]);
     }
+
+    public function detalle_update(Request $request, Pedido $pedido, DetallePedido $detalle)
+    {
+        DB::beginTransaction();
+
+        $detalle->talla = $request->talla;
+        $detalle->cantidad = $request->cantidad;
+        $detalle->descripcion = $request->descripcion;
+        $detalle->save();
+
+        DB::commit();
+
+        return redirect()->route('admin.pedidos.edit', [$pedido->id]);
+    }
 }

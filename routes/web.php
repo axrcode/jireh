@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('/pedidos/{pedido}/editar', 'PedidoController@edit')->name('admin.pedidos.edit');
 
     Route::post('/pedidos/{pedido}/detalle', 'PedidoController@detalle_store')->name('admin.pedidos.detalle.store');
+    Route::put('/pedidos/{pedido}/detalle/{detalle}', 'PedidoController@detalle_update')->name('admin.pedidos.detalle.update');
 
 
 
