@@ -17,7 +17,7 @@
             <div class="login-page px-4 bg-transparent">
 
                 <div class="login-logo d-lg-none mb-3">
-                    <img src="{{ secure_asset('icons/logo-inscripciones.png') }}" alt="CBP" class="img-login-2">
+                    <img src="{{ asset('icons/logo-inscripciones.png') }}" alt="CBP" class="img-login-2">
                 </div>
 
                 <div class="card px-md-5 mt-n5 bg-gris-login shadow-none border-0">

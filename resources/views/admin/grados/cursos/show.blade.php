@@ -140,7 +140,7 @@
 
 @section('scripts')
 
-    <script src="{{ secure_asset('scripts/cursos_grado-datatable.js') }}"></script>
+    <script src="{{ asset('scripts/cursos_grado-datatable.js') }}"></script>
 
     @include('extensions.toast-process-result')
 

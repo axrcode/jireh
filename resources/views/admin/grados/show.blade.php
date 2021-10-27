@@ -304,8 +304,8 @@
 
 @section('scripts')
 
-    <script src="{{ secure_asset('scripts/principal-datatable.js') }}"></script>
-    <script src="{{ secure_asset('scripts/secondary-datatable.js') }}"></script>
+    <script src="{{ asset('scripts/principal-datatable.js') }}"></script>
+    <script src="{{ asset('scripts/secondary-datatable.js') }}"></script>
 
     @include('extensions.toast-process-result')
 
