@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!--    CSS - Bootstrap y Propios   -->
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!--    Head para cada Plantilla    -->
     @yield('head')
@@ -33,7 +33,7 @@
     <!--    Contenido de Plantillas    -->
     @yield('content')
 
-    <script src="/js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!--    Javascripts para cada Plantilla    -->
     @yield('scripts')
