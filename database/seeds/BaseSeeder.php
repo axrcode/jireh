@@ -2,6 +2,9 @@
 
 use App\Models\Academico;
 use App\Models\CicloEscolar;
+use App\Models\Cliente;
+use App\Models\Departamento;
+use App\Models\Empleado;
 use App\Models\Empresa;
 use App\Models\Unidad;
 use App\User;
@@ -36,5 +39,21 @@ class BaseSeeder extends Seeder
             'password' => Hash::make('ADMIN'),
             'credential' => 'ADMIN',
         ])->assignRole('Super Administrador');
+
+        Cliente::create([
+            'nombre' => 'Pamela',
+            'apellido' => 'Cuevas',
+        ]);
+
+        Departamento::create([
+            'nombre' => 'Gerencia',
+        ]);
+
+        Empleado::create([
+            'nombre' => 'Axel',
+            'apellido' => 'Castillo',
+            'user_id' => 1,
+            'departamento_id' => 1,
+        ]);
     }
 }
