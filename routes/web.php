@@ -25,6 +25,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('/pedidos/{pedido}', 'PedidoController@show')->name('admin.pedidos.show');
     Route::get('/pedidos/{pedido}/editar', 'PedidoController@edit')->name('admin.pedidos.edit');
     Route::put('/pedidos/{pedido}', 'PedidoController@update')->name('admin.pedidos.update');
+    Route::get('/pedidos/crear', 'PedidoController@create')->name('admin.pedidos.create');
+    Route::delete('/pedidos/{pedido}', 'PedidoController@destroy')->name('admin.pedidos.destroy');
 
     Route::post('/pedidos/{pedido}/detalle', 'PedidoController@detalle_store')->name('admin.pedidos.detalle.store');
     Route::put('/pedidos/{pedido}/detalle/{detalle}', 'PedidoController@detalle_update')->name('admin.pedidos.detalle.update');
@@ -33,8 +35,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 
 
 
-    Route::get('/pedidos/crear', 'PedidoController@create')->name('admin.pedidos.create');
-    Route::delete('/pedidos/{pedido}', 'PedidoController@destroy')->name('admin.pedidos.destroy');
 
 
 });
