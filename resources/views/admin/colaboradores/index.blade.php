@@ -141,7 +141,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('scripts/principal-datatable.js') }}"></script>
+    <script src="/scripts/principal-datatable.js"></script>
 
     @include('extensions.toast-process-result')
 
