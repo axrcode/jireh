@@ -183,7 +183,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('scripts/tertiary-datatable.js') }}"></script>
+    <script src="{{ secure_asset('scripts/tertiary-datatable.js') }}"></script>
 
     @include('extensions.toast-process-result')
 
