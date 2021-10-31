@@ -102,7 +102,7 @@
                                                 </td>
                                                 <td class="bg-light">
 
-                                                        <a  href="{{ route('admin.clientes.edit', [$empleado->id]) }}"
+                                                        <a  href="{{ route('admin.empleados.edit', [$empleado->id]) }}"
                                                             class="text-dark font-weight-bold text-wrap">
                                                             {{ $empleado->nombre }} {{ $empleado->apellido }}
                                                         </a>

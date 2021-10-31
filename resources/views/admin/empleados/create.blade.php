@@ -218,7 +218,7 @@
                         <div class="col-12 col-md-4 offset-md-8">
                             <div class="row">
                                 <div class="col-6 pl-md-0">
-                                    <a  href="{{ route('admin.clientes.index') }}"
+                                    <a  href="{{ route('admin.empleados.index') }}"
                                         class="btn btn-secondary btn-sm btn-flat btn-block">
                                         Regresar
                                     </a>
