@@ -40,7 +40,7 @@ class DeptoController extends Controller
      */
     public function create()
     {
-        //
+        return abort('404');
     }
 
     /**
@@ -79,7 +79,7 @@ class DeptoController extends Controller
      */
     public function show(Departamento $departamento)
     {
-        //
+        return abort('404');
     }
 
     /**
@@ -90,7 +90,7 @@ class DeptoController extends Controller
      */
     public function edit(Departamento $departamento)
     {
-        //
+        return abort('404');
     }
 
     /**

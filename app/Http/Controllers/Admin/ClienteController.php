@@ -86,7 +86,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return abort('404');
     }
 
     /**
