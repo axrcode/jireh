@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cliente;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClienteController extends Controller
 {
@@ -38,7 +39,9 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.clientes.create', [
+            'empresa' => $this->empresa
+        ]);
     }
 
     /**
@@ -49,7 +52,29 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'nombre' => 'required|string',
+            'apellido' => 'required|string'
+        ]);
+
+        DB::beginTransaction();
+
+        $cliente = new Cliente;
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido = $request->apellido;
+        $cliente->nit = $request->nit;
+        $cliente->telefono = $request->telefono;
+        $cliente->direccion = $request->direccion;
+        $cliente->save();
+
+        DB::commit();
+
+        return redirect()
+        ->route('admin.clientes.index')
+        ->with('process_result', [
+            'status' => 'success',
+            'content' => 'Nuevo cliente creado exitosamente'
+        ]);
     }
 
     /**
