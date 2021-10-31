@@ -43,6 +43,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::put('/clientes/{cliente}', 'ClienteController@update')->name('admin.clientes.update');
     Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('admin.clientes.destroy');
 
+    //  Departamentos
+    Route::get('/departamentos', 'DeptoController@index')->name('admin.departamentos.index');
+    Route::get('/departamentos/crear', 'DeptoController@create')->name('admin.departamentos.create');
+    Route::post('/departamentos', 'DeptoController@store')->name('admin.departamentos.store');
+    Route::get('/departamentos/{departamento}', 'DeptoController@show')->name('admin.departamentos.show');
+    Route::get('/departamentos/{departamento}/editar', 'DeptoController@edit')->name('admin.departamentos.edit');
+    Route::put('/departamentos/{departamento}', 'DeptoController@update')->name('admin.departamentos.update');
+    Route::delete('/departamentos/{departamento}', 'DeptoController@destroy')->name('admin.departamentos.destroy');
+
 
 
 });
