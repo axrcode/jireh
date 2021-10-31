@@ -43,7 +43,12 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        $clientes = Cliente::all();
+
+        return view('admin.pedidos.create', [
+            'clientes' => $clientes,
+            'empresa' => $this->empresa
+        ]);
     }
 
     /**

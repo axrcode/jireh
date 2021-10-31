@@ -46,11 +46,11 @@
                                 <div class="row">
 
                                         <div class="col-md-4">
-                                            <button type="button"
-                                                class="btn btn-primary btn-sm btn-flat px-3" data-toggle="modal" data-target="#modalCrearPedido">
+                                            <a  href="{{ route('admin.pedidos.create') }}"
+                                                class="btn btn-primary btn-sm btn-flat px-3">
                                                 <i class="fas fa-plus-square mr-2"></i>
                                                 Crear nuevo pedido
-                                            </button>
+                                            </a>
                                         </div>
 
                                 </div>
@@ -156,89 +156,6 @@
         </div>
     </div>
 
-    <!-- Modal Crear Pedido -->
-    <div class="modal fade" id="modalCrearPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <form action="{{ route('admin.pedidos.store') }}" method="POST">
-                    @csrf
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Crear Nuevo Pedido</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="cliente">Cliente</label>
-                                    <select
-                                        class="form-control select2bs4"
-                                        name="cliente"
-                                        id="cliente"
-                                        required>
-                                        @foreach ($clientes as $cliente)
-                                            <option
-                                                value="{{ $cliente->id }}">
-                                                {{ $cliente->nombre }} {{ $cliente->apellido }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="titulo">Título del Pedido</label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="titulo"
-                                        name="titulo".
-                                        autocomplete="off"
-                                        required>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="descripcion">Descripción del Pedido</label>
-                                    <textarea
-                                        class="form-control"
-                                        name="descripcion"
-                                        id="descripcion"
-                                        autocomplete="off"
-                                        rows="3"
-                                    ></textarea>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="fecha_pedido">Fecha Pedido</label>
-                                    <input
-                                        type="date"
-                                        class="form-control"
-                                        id="fecha_pedido"
-                                        name="fecha_pedido"
-                                        value="{{ date('Y-m-d') }}"
-                                        required>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-flat px-3" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary btn-flat px-3">Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
     <!-- Control Sidebar -->
     @include('layouts.aside')
 
@@ -258,7 +175,7 @@
     <script>
         $(function () {
             //Initialize Select2 Elements
-            $('.select2').select2()
+            $('.select2bs4').select2()
             //Initialize Select2 Elements
             $('.select2bs4').select2({
                 theme: 'bootstrap4'
