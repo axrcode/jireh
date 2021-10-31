@@ -2,7 +2,7 @@
 
 @section('head')
 
-    <title>Pedidos - {{ config('app.name', 'Sistema') }}</title>
+    <title>Clientes - {{ config('app.name', 'Sistema') }}</title>
 
 @endsection
 

@@ -2,7 +2,7 @@
 
 @section('head')
 
-    <title>Editar Pedido - {{ config('app.name', 'Sistema') }}</title>
+    <title>Crear Nuevo Cliente - {{ config('app.name', 'Sistema') }}</title>
 
 @endsection
 
