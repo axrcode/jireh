@@ -96,7 +96,10 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('admin.clientes.edit', [
+            'cliente' => $cliente,
+            'empresa' => $this->empresa
+        ]);
     }
 
     /**
@@ -108,7 +111,23 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        DB::beginTransaction();
+
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido = $request->apellido;
+        $cliente->nit = $request->nit;
+        $cliente->telefono = $request->telefono;
+        $cliente->direccion = $request->direccion;
+        $cliente->save();
+
+        DB::commit();
+
+        return redirect()
+        ->route('admin.clientes.edit', [$cliente->id])
+        ->with('process_result', [
+            'status' => 'success',
+            'content' => 'Cliente actualizado correctamente'
+        ]);
     }
 
     /**

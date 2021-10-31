@@ -38,10 +38,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('/clientes', 'ClienteController@index')->name('admin.clientes.index');
     Route::get('/clientes/crear', 'ClienteController@create')->name('admin.clientes.create');
     Route::post('/clientes', 'ClienteController@store')->name('admin.clientes.store');
-    Route::get('/clientes/{pedido}', 'ClienteController@show')->name('admin.clientes.show');
-    Route::get('/clientes/{pedido}/editar', 'ClienteController@edit')->name('admin.clientes.edit');
-    Route::put('/clientes/{pedido}', 'ClienteController@update')->name('admin.clientes.update');
-    Route::delete('/clientes/{pedido}', 'ClienteController@destroy')->name('admin.clientes.destroy');
+    Route::get('/clientes/{cliente}', 'ClienteController@show')->name('admin.clientes.show');
+    Route::get('/clientes/{cliente}/editar', 'ClienteController@edit')->name('admin.clientes.edit');
+    Route::put('/clientes/{cliente}', 'ClienteController@update')->name('admin.clientes.update');
+    Route::delete('/clientes/{cliente}', 'ClienteController@destroy')->name('admin.clientes.destroy');
 
 
 
