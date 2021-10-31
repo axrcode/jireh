@@ -226,6 +226,25 @@ class EmpleadoController extends Controller
      */
     public function destroy(Empleado $empleado)
     {
-        //
+        DB::beginTransaction();
+
+        if ( $empleado->estado == 'activo' ) {
+            $empleado->estado = 'inactivo';
+            $msg = 'Empleado inactivado para el sistema.';
+        } else {
+            $empleado->estado = 'activo';
+            $msg = 'Empleado activado para el sistema.';
+        }
+
+        $empleado->save();
+
+        DB::commit();
+
+        return redirect()
+        ->route('admin.empleados.index')
+        ->with('process_result', [
+            'status' => 'success',
+            'content' => $msg
+        ]);
     }
 }
