@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Cliente;
 use App\Models\Empresa;
+use App\Models\Pedido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -138,6 +139,29 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $pedidos_cliente = Pedido::where('cliente_id', $cliente->id)->get();
+
+        if ( sizeof($pedidos_cliente) > 0 ) {
+
+            $cliente->estado = 'inactivo';
+            $cliente->save();
+
+            return redirect()
+            ->route('admin.clientes.index')
+            ->with('process_result', [
+                'status' => 'info',
+                'content' => 'El cliente ha sido inactivado ya que tiene pedidos asociados'
+            ]);
+        } else {
+
+            $cliente->delete();
+
+            return redirect()
+            ->route('admin.clientes.index')
+            ->with('process_result', [
+                'status' => 'success',
+                'content' => 'Cliente eliminado correctamente'
+            ]);
+        }
     }
 }

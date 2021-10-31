@@ -73,14 +73,17 @@
                                             <th style="width: 30%">
                                                 Nombre
                                             </th>
-                                            <th style="width: 15%">
+                                            <th style="width: 10%">
                                                 Nit
                                             </th>
-                                            <th style="width: 15%">
+                                            <th style="width: 10%">
                                                 Teléfono
                                             </th>
                                             <th style="width: 25%">
                                                 Dirección
+                                            </th>
+                                            <th style="width: 10%">
+                                                Estado
                                             </th>
                                             <th style="width: 10%">
                                                 {{ __('Actions') }}
@@ -96,7 +99,7 @@
                                                 </td>
                                                 <td class="bg-light">
 
-                                                        <a  href="{{ route('admin.clientes.show', [$cliente->id]) }}"
+                                                        <a  href="{{ route('admin.clientes.edit', [$cliente->id]) }}"
                                                             class="text-dark font-weight-bold text-wrap">
                                                             {{ $cliente->nombre }} {{ $cliente->apellido }}
                                                         </a>
@@ -111,21 +114,58 @@
                                                 <td>
                                                     {{ $cliente->direccion }}
                                                 </td>
+                                                <td>
+                                                    @if ($cliente->estado == 'activo')
+                                                        <span class="badge badge-success">
+                                                            {{ $cliente->estado }}
+                                                        </span>
+                                                    @else
+                                                        <span class="badge badge-danger">
+                                                            {{ $cliente->estado }}
+                                                        </span>
+                                                    @endif
+                                                </td>
                                                 <td class="text-right">
-
-                                                        <a  href="{{ route('admin.clientes.show', [$cliente->id]) }}"
-                                                            class="btn btn-success btn-sm btn-flat"
-                                                            data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
-                                                        >
-                                                            <i class="fas fa-id-card"></i>
-                                                        </a>
 
                                                         <a  href="{{ route('admin.clientes.edit', [$cliente->id]) }}"
                                                             class="btn btn-primary btn-sm btn-flat"
                                                             data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
-                                                        >
+                                                            >
                                                             <i class="fas fa-edit"></i>
                                                         </a>
+
+                                                        <button type="button" data-toggle="modal" data-target="#modalEliminarCliente_{{ $cliente->id }}"
+                                                            class="btn btn-danger btn-sm btn-flat"
+                                                            data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
+                                                        >
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+
+                                                        <!-- Modal Eliminar Cliente -->
+                                                        <div class="modal fade" id="modalEliminarCliente_{{ $cliente->id }}" tabindex="-1" aria-labelledby="modalEliminarCliente_{{ $cliente->id }}" aria-hidden="true">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <form action="{{ route('admin.clientes.destroy', [$cliente->id]) }}" method="POST">
+                                                                        @csrf
+                                                                        @method('DELETE')
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Cliente</h5>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body text-left text-wrap">
+                                                                            ¿ Está seguro que desea eliminar al cliente
+                                                                            <b>{{ $cliente->nombre }} {{ $cliente->apellido }}</b>?
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary btn-flat px-3" data-dismiss="modal">Cancelar</button>
+                                                                            <button type="submit" class="btn btn-danger btn-flat px-3">Confirmar</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
                                                 </td>
                                             </tr>
