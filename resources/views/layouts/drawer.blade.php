@@ -35,6 +35,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column nav-flat text-sm" data-widget="treeview" role="menu" data-accordion="false">
 
                 @include('layouts.options')
+
                 <!-- Opciones de Administrador -->
                 {{-- @include('layouts.options_admin') --}}
 
