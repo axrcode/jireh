@@ -143,14 +143,23 @@ class ClienteController extends Controller
 
         if ( sizeof($pedidos_cliente) > 0 ) {
 
-            $cliente->estado = 'inactivo';
+            if ( $cliente->estado == 'activo' ) {
+                $cliente->estado = 'inactivo';
+                $msg = 'El cliente ha sido inactivado ya que tiene pedidos asociados';
+                $status = 'info';
+            } else {
+                $cliente->estado = 'activo';
+                $msg = 'Cliente activado nuevamente';
+                $status = 'success';
+            }
+
             $cliente->save();
 
             return redirect()
             ->route('admin.clientes.index')
             ->with('process_result', [
-                'status' => 'info',
-                'content' => 'El cliente ha sido inactivado ya que tiene pedidos asociados'
+                'status' => $status,
+                'content' => $msg
             ]);
         } else {
 

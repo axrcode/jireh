@@ -128,17 +128,15 @@
                                                 <td class="text-right">
 
                                                         <a  href="{{ route('admin.clientes.edit', [$cliente->id]) }}"
-                                                            class="btn btn-primary btn-sm btn-flat"
-                                                            data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
+                                                            class="btn btn-success btn-sm btn-flat"
                                                             >
                                                             <i class="fas fa-edit"></i>
                                                         </a>
 
                                                         <button type="button" data-toggle="modal" data-target="#modalEliminarCliente_{{ $cliente->id }}"
-                                                            class="btn btn-danger btn-sm btn-flat"
-                                                            data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
+                                                            class="btn @if ($cliente->estado=='inactivo') btn-primary @else btn-danger @endif btn-sm btn-flat"
                                                         >
-                                                            <i class="fas fa-trash"></i>
+                                                            <i class="fas @if ($cliente->estado=='inactivo') fa-check-circle @else fa-trash @endif"></i>
                                                         </button>
 
                                                         <!-- Modal Eliminar Cliente -->
@@ -149,13 +147,18 @@
                                                                         @csrf
                                                                         @method('DELETE')
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalLabel">Eliminar Cliente</h5>
+                                                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                                                @if ($cliente->estado=='inactivo') Activar @else Eliminar @endif
+                                                                                Cliente
+                                                                            </h5>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                 <span aria-hidden="true">&times;</span>
                                                                             </button>
                                                                         </div>
                                                                         <div class="modal-body text-left text-wrap">
-                                                                            ¿ Está seguro que desea eliminar al cliente
+                                                                            ¿ Está seguro que desea
+                                                                            @if ($cliente->estado=='inactivo') activar @else eliminar @endif
+                                                                            al cliente
                                                                             <b>{{ $cliente->nombre }} {{ $cliente->apellido }}</b>?
                                                                         </div>
                                                                         <div class="modal-footer">

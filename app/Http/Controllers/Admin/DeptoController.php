@@ -139,7 +139,7 @@ class DeptoController extends Controller
                 $status = 'info';
             } else {
                 $departamento->estado = 'activo';
-                $msg = 'Departamento activado nuevamento';
+                $msg = 'Departamento activado nuevamente';
                 $status = 'success';
             }
 
