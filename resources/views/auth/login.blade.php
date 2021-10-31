@@ -34,7 +34,7 @@
                         name="user"
                         id="user"
                         type="text"
-                        class="form-control form-control-border @error('user') is-invalid @enderror bg-transparent"
+                        class="form-control @error('user') is-invalid @enderror bg-transparent"
                         value="{{ old('user') }}"
                         autocomplete="off"
                         placeholder="Usuario"
@@ -47,7 +47,7 @@
                         name="password"
                         id="password"
                         type="password"
-                        class="form-control form-control-border @error('password') is-invalid @enderror bg-transparent"
+                        class="form-control @error('password') is-invalid @enderror bg-transparent"
                         placeholder="Contraseña"
                         autocomplete="off"
                         required
@@ -73,11 +73,11 @@
 
             </form>
 
-            <p class="mt-4 mb-3 text-center">
+            {{-- <p class="mt-4 mb-3 text-center">
                 <a href="">
                     ¿Olvidaste tu contraseña?
                 </a>
-            </p>
+            </p> --}}
 
             @error('user')
                 <div class="alert alert-danger text-center mt-3" role="alert">
