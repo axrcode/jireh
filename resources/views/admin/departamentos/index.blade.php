@@ -120,7 +120,7 @@
                                                                     @csrf
                                                                     @method('PUT')
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Departamento</h5>
+                                                                        <h5 class="modal-title" id="exampleModalLabel">Actualizar Departamento</h5>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
@@ -146,7 +146,7 @@
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary btn-flat px-3" data-dismiss="modal">Cancelar</button>
-                                                                        <button type="submit" class="btn btn-danger btn-flat px-3">Confirmar</button>
+                                                                        <button type="submit" class="btn btn-success btn-flat px-3">Confirmar</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -154,9 +154,9 @@
                                                     </div>
 
                                                     <button type="button" data-toggle="modal" data-target="#modalEliminarDepto_{{ $depto->id }}"
-                                                        class="btn btn-danger btn-sm btn-flat"
+                                                        class="btn @if ($depto->estado=='inactivo') btn-primary @else btn-danger @endif btn-sm btn-flat"
                                                     >
-                                                        <i class="fas fa-trash"></i>
+                                                        <i class="fas @if ($depto->estado=='inactivo') fa-check-circle @else fa-trash @endif"></i>
                                                     </button>
 
                                                     <!-- Modal Eliminar Departamentos -->
@@ -167,13 +167,18 @@
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Departamento</h5>
+                                                                        <h5 class="modal-title" id="exampleModalLabel">
+                                                                            @if ($depto->estado=='inactivo') Activar @else Eliminar @endif
+                                                                            Departamento
+                                                                        </h5>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                     </div>
                                                                     <div class="modal-body text-left text-wrap">
-                                                                        ¿ Está seguro que desea eliminar el departamento
+                                                                        ¿ Está seguro que desea
+                                                                        @if ($depto->estado=='inactivo') activar @else eliminar @endif
+                                                                        el departamento
                                                                         <b>{{ $depto->nombre }}</b>?
                                                                     </div>
                                                                     <div class="modal-footer">

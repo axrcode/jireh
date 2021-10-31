@@ -133,14 +133,23 @@ class DeptoController extends Controller
 
         if ( sizeof($empleados_depto) > 0 ) {
 
-            $departamento->estado = 'inactivo';
+            if ( $departamento->estado == 'activo' ) {
+                $departamento->estado = 'inactivo';
+                $msg = 'El departamento ha sido inactivado ya que tiene empleados asociados. Esto desactiva el acceso a los usuarios';
+                $status = 'info';
+            } else {
+                $departamento->estado = 'activo';
+                $msg = 'Departamento activado nuevamento';
+                $status = 'success';
+            }
+
             $departamento->save();
 
             return redirect()
             ->route('admin.departamentos.index')
             ->with('process_result', [
-                'status' => 'info',
-                'content' => 'El departamento ha sido inactivado ya que tiene empleados asociados. Esto desactiva el acceso a los usuarios'
+                'status' => $status,
+                'content' => $msg
             ]);
         } else {
 
