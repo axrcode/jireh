@@ -2,7 +2,7 @@
 
 @section('head')
 
-    <title>Crear Nuevo Cliente - {{ config('app.name', 'Sistema') }}</title>
+    <title>Crear Nuevo Empleado - {{ config('app.name', 'Sistema') }}</title>
 
 @endsection
 
@@ -25,8 +25,8 @@
                 <div class="row mb-2">
                     <div class="col-12">
                         <h1 class="font-weight-bold m-0">
-                            <i class="fas fa-users mr-1"></i>
-                            Crear Nuevo Cliente
+                            <i class="fas fa-user mr-1"></i>
+                            Crear Nuevo Empleado
                         </h1>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
         <div class="content">
             <div class="container-fluid">
 
-                <form action="{{ route('admin.clientes.store') }}" method="POST">
+                <form action="{{ route('admin.empleados.store') }}" method="POST">
                     @csrf
                     <div class="row">
 
@@ -48,7 +48,7 @@
                                     <div class="row">
 
                                         <div class="col-12 mb-3">
-                                            <h4 class="font-weight-bold">Información del Cliente</h4>
+                                            <h4 class="font-weight-bold">Información del Empleado</h4>
                                         </div>
 
                                         <div class="col-md-6">
@@ -59,7 +59,7 @@
                                                     class="form-control"
                                                     id="nombre"
                                                     name="nombre"
-                                                    placeholder="Nombre del cliente"
+                                                    placeholder="Nombre del empleado"
                                                     autocomplete="off"
                                                     required>
                                             </div>
@@ -73,7 +73,7 @@
                                                     class="form-control"
                                                     id="apellido"
                                                     name="apellido"
-                                                    placeholder="Apellido del cliente"
+                                                    placeholder="Apellido del empleado"
                                                     autocomplete="off"
                                                     required>
                                             </div>
@@ -81,13 +81,25 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="nit">Nit</label>
+                                                <label for="fecha_nac">Fecha de Nacmiento</label>
+                                                <input
+                                                    type="date"
+                                                    class="form-control"
+                                                    id="fecha_nac"
+                                                    name="fecha_nac"
+                                                    autocomplete="off">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="dpi">Dpi</label>
                                                 <input
                                                     type="text"
                                                     class="form-control"
-                                                    id="nit"
-                                                    name="nit"
-                                                    placeholder="Nit del cliente"
+                                                    id="dpi"
+                                                    name="dpi"
+                                                    placeholder="Dpi del empleado"
                                                     autocomplete="off">
                                             </div>
                                         </div>
@@ -100,12 +112,12 @@
                                                     class="form-control"
                                                     id="telefono"
                                                     name="telefono"
-                                                    placeholder="Número de teléfono del cliente"
+                                                    placeholder="Número de teléfono del empleado"
                                                     autocomplete="off">
                                             </div>
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="direccion">Dirección</label>
                                                 <input
@@ -113,7 +125,86 @@
                                                     class="form-control"
                                                     id="direccion"
                                                     name="direccion"
-                                                    placeholder="Dirección del cliente"
+                                                    placeholder="Dirección del empleado"
+                                                    autocomplete="off">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 my-3">
+                                            <h4 class="font-weight-bold">Información de Acceso al Sistema</h4>
+                                            <p>Si desea que el empleado tenga acceso al sistema, ingrese una contraseña para el usuario</p>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="email">Correo Electrónico</label>
+                                                <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    id="email"
+                                                    name="email"
+                                                    placeholder="Correo electrónico del empleado"
+                                                    autocomplete="off">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="password">Contraseña de Acceso</label>
+                                                <input
+                                                    type="password"
+                                                    class="form-control"
+                                                    id="password"
+                                                    name="password"
+                                                    placeholder="Contraseña de acceso del empleado"
+                                                    autocomplete="off">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 my-3">
+                                            <h4 class="font-weight-bold">Información Empresarial</h4>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="cargo">Cargo</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="cargo"
+                                                    name="cargo"
+                                                    placeholder="Cargo del empleado"
+                                                    autocomplete="off">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="depto">Departamento</label>
+                                                <select
+                                                    class="form-control select2bs4"
+                                                    name="depto"
+                                                    id="depto"
+                                                    required>
+                                                    <option value="">Seleccione un departamento</option>
+                                                    @foreach ($departamentos as $depto)
+                                                        <option
+                                                            value="{{ $depto->id }}">
+                                                            {{ $depto->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="fecha_alta">Fecha Alta</label>
+                                                <input
+                                                    type="date"
+                                                    class="form-control"
+                                                    id="fecha_alta"
+                                                    name="fecha_alta"
                                                     autocomplete="off">
                                             </div>
                                         </div>
@@ -147,32 +238,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal Eliminar Pedido -->
-    {{-- <div class="modal fade" id="modalEliminarPedido" tabindex="-1" aria-labelledby="modalEliminarPedido" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="{{ route('admin.pedidos.destroy', [$pedido->id]) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Pedido</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ¿ Está seguro que desea eliminar el pedido ? <br>
-                        <b>Se borrará toda la información relacionada a él</b>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-flat px-3" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-danger btn-flat px-3">Confirmar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div> --}}
 
     <!-- Control Sidebar -->
     @include('layouts.aside')

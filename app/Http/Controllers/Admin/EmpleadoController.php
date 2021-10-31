@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Empleado;
+use App\User;
 use App\Models\Empresa;
+use App\Models\Empleado;
+use App\Models\Departamento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class EmpleadoController extends Controller
 {
@@ -38,7 +43,12 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        $departamentos = Role::all();
+
+        return view('admin.empleados.create', [
+            'empresa' => $this->empresa,
+            'departamentos' => $departamentos,
+        ]);
     }
 
     /**
@@ -49,7 +59,64 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'nombre' => 'required|string',
+            'apellido' => 'required|string',
+            'depto' => 'required',
+        ]);
+
+        DB::beginTransaction();
+
+        /* OBTIENE EL CORRELATIVO DEL EMPLEADO */
+        $correlative = intval(Empleado::max(DB::Raw('coalesce(correlative,0)')))+1;
+        $correlative = str_pad($correlative, 3, "0", STR_PAD_LEFT);
+
+        $usuario = new User;
+        $usuario->name = $request->nombre .' '. $request->apellido;
+        $usuario->email = $request->email;
+
+        if ( $request->password != null )
+        {
+            /* OBTIENE LA PRIMERA LETRA DEL PRIMER NOMBRE */
+            $primera_letra_nombre = strtoupper($request->nombre[0]);
+
+            /* OBTIENE SOLAMENTE EL PRIMER APELLIDO */
+            list($apellido) = explode(" ", $request->apellido);
+            $primer_apellido = strtoupper($apellido);
+
+            $user = $primera_letra_nombre . $primer_apellido . $correlative;
+
+            $usuario->user = $user;
+            $usuario->password = Hash::make($request->password);
+            $usuario->credential = $request->password;
+        }
+
+        $usuario->save();
+
+        $usuario->roles()->sync($request->depto);
+
+        $empleado = new Empleado;
+        $empleado->nombre = $request->nombre;
+        $empleado->apellido = $request->apellido;
+        $empleado->dpi = $request->dpi;
+        $empleado->fecha_nacimiento = $request->fecha_nac;
+        $empleado->direccion = $request->direccion;
+        $empleado->telefono = $request->telefono;
+        $empleado->cargo = $request->cargo;
+        $empleado->fecha_alta = $request->fecha_alta;
+        $empleado->user_id = $usuario->id;
+        $empleado->departamento_id = $request->depto;
+        $empleado->correlative = $correlative;
+        $empleado->save();
+
+        DB::commit();
+
+        return redirect()
+        ->route('admin.empleados.index')
+        ->with('process_result', [
+            'status' => 'success',
+            'content' => 'Nuevo empleado creado exitosamente'
+        ]);
     }
 
     /**
