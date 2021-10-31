@@ -8,6 +8,20 @@
     </li>
 
     <li class="nav-item">
+        <a href="{{ route('admin.pedidos.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-sitemap nav-icon"></i>
+            <p>Departamentos</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a href="{{ route('admin.pedidos.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-user nav-icon"></i>
+            <p>Empleados</p>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a href="{{ route('admin.clientes.index') }}" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
             <p>Clientes</p>
@@ -21,7 +35,7 @@
         </a>
     </li>
 
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a href="#" class="nav-link">
             <i class="fas fa-cogs nav-icon"></i>
             <p>
@@ -54,7 +68,7 @@
                 </li>
             </ul>
 
-    </li>
+    </li> --}}
 
     {{-- <li class="nav-item">
         <a href="{{ route('admin.colaborador.index') }}" class="nav-link">
