@@ -15,7 +15,7 @@
     </li>
 
     <li class="nav-item">
-        <a href="{{ route('admin.pedidos.index') }}" class="nav-link">
+        <a href="{{ route('admin.empleados.index') }}" class="nav-link">
             <i class="nav-icon fas fa-user nav-icon"></i>
             <p>Empleados</p>
         </a>

@@ -52,6 +52,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::put('/departamentos/{departamento}', 'DeptoController@update')->name('admin.departamentos.update');
     Route::delete('/departamentos/{departamento}', 'DeptoController@destroy')->name('admin.departamentos.destroy');
 
+    //  Empleados
+    Route::get('/empleados', 'EmpleadoController@index')->name('admin.empleados.index');
+    Route::get('/empleados/crear', 'EmpleadoController@create')->name('admin.empleados.create');
+    Route::post('/empleados', 'EmpleadoController@store')->name('admin.empleados.store');
+    Route::get('/empleados/{empleado}', 'EmpleadoController@show')->name('admin.empleados.show');
+    Route::get('/empleados/{empleado}/editar', 'EmpleadoController@edit')->name('admin.empleados.edit');
+    Route::put('/empleados/{empleado}', 'EmpleadoController@update')->name('admin.empleados.update');
+    Route::delete('/empleados/{empleado}', 'EmpleadoController@destroy')->name('admin.empleados.destroy');
+
 
 
 });
