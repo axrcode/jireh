@@ -13,12 +13,13 @@ class NewRolesSeeder extends Seeder
      */
     public function run()
     {
-        $sa = Role::create(['name' => 'Gerencia']);
+        $sa = Role::create(['name' => 'Super Administrador']);
         $pedido = Role::create(['name' => 'Pedido y Coordinación']);
         $bodega = Role::create(['name' => 'Bodega']);
         $produccion = Role::create(['name' => 'Producción']);
         $sqa = Role::create(['name' => 'Control de Calidad']);
         $entrega = Role::create(['name' => 'Entrega']);
+        $none = Role::create(['name' => 'None']);
         /* $secretaria = Role::create(['name' => 'Secretaria']);
         $docente = Role::create(['name' => 'Docente']);
         $estudiante = Role::create(['name' => 'Estudiante']); */

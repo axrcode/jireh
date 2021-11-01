@@ -38,7 +38,7 @@ class BaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('ADMIN'),
             'credential' => 'ADMIN',
-        ])->assignRole('Gerencia');
+        ])->assignRole('Super Administrador');
 
         Cliente::create([
             'nombre' => 'Pamela',

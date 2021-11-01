@@ -161,6 +161,24 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="role">Rol del Usuario</label>
+                                                <select
+                                                    class="form-control select2bs4"
+                                                    name="role"
+                                                    id="role">
+                                                    <option value="0">Seleccione un rol para el usuario</option>
+                                                    @foreach ($roles as $role)
+                                                        <option
+                                                            value="{{ $role->id }}">
+                                                            {{ $role->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="col-12 my-3">
                                             <h4 class="font-weight-bold">Información Empresarial</h4>
                                         </div>
@@ -190,7 +208,7 @@
                                                     @foreach ($departamentos as $depto)
                                                         <option
                                                             value="{{ $depto->id }}">
-                                                            {{ $depto->name }}
+                                                            {{ $depto->nombre }}
                                                         </option>
                                                     @endforeach
                                                 </select>

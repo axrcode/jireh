@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 class EmpleadoController extends Controller
 {
@@ -28,7 +29,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $empleados = Empleado::all();
+        $empleados = Empleado::where('id','>',1)->get();
 
         return view('admin.empleados.index', [
             'empleados' => $empleados,
@@ -43,11 +44,13 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        $departamentos = Role::all();
+        $roles = Role::where('name', '<>', 'None')->get();
+        $departamentos = Departamento::where('estado', 'activo')->get();
 
         return view('admin.empleados.create', [
             'empresa' => $this->empresa,
             'departamentos' => $departamentos,
+            'roles' => $roles,
         ]);
     }
 
@@ -93,7 +96,13 @@ class EmpleadoController extends Controller
 
         $usuario->save();
 
-        $usuario->roles()->sync($request->depto);
+        if ( $request->role == 0 ) {
+            $role = Role::where('name','None')->value('id');
+        } else {
+            $role = $request->role;
+        }
+
+        $usuario->roles()->sync($role);
 
         $empleado = new Empleado;
         $empleado->nombre = $request->nombre;
@@ -138,13 +147,15 @@ class EmpleadoController extends Controller
      */
     public function edit(Empleado $empleado)
     {
-        $departamentos = Role::all();
+        $roles = Role::all();
+        $departamentos = Departamento::where('estado', 'activo')->get();
 
         $role_id = $empleado->user->roles()->first()->pivot->role_id;
 
         return view('admin.empleados.edit', [
             'empresa' => $this->empresa,
             'departamentos' => $departamentos,
+            'roles' => $roles,
             'empleado' => $empleado,
             'role_id' => $role_id,
         ]);
@@ -193,7 +204,7 @@ class EmpleadoController extends Controller
 
         $usuario->save();
 
-        $usuario->roles()->sync($request->depto);
+        $usuario->roles()->sync($request->role);
 
         $empleado->nombre = $request->nombre;
         $empleado->apellido = $request->apellido;

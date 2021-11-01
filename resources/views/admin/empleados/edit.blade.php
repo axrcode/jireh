@@ -169,6 +169,25 @@
                                             </div>
                                         </div>
 
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="role">Rol del usuario</label>
+                                                <select
+                                                    class="form-control select2bs4"
+                                                    name="role"
+                                                    id="role"
+                                                    required>
+                                                    @foreach ($roles as $role)
+                                                        <option
+                                                            value="{{ $role->id }}"
+                                                            {{ $role->id == $role_id ? 'selected' : '' }}>
+                                                            {{ $role->name == 'None' ? 'Seleccione un rol para el usuario' : $role->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
                                         <div class="col-12 my-3">
                                             <h4 class="font-weight-bold">Información Empresarial</h4>
                                         </div>
@@ -195,12 +214,11 @@
                                                     name="depto"
                                                     id="depto"
                                                     required>
-                                                    <option value="">Seleccione un departamento</option>
                                                     @foreach ($departamentos as $depto)
                                                         <option
                                                             value="{{ $depto->id }}"
-                                                            {{ $depto->id == $role_id ? 'selected' : '' }}>
-                                                            {{ $depto->name }}
+                                                            {{ $depto->id == $empleado->departamento_id ? 'selected' : '' }}>
+                                                            {{ $depto->nombre }}
                                                         </option>
                                                     @endforeach
                                                 </select>
