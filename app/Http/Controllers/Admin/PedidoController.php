@@ -77,6 +77,7 @@ class PedidoController extends Controller
         $pedido->fecha_pedido = $request->fecha_pedido;
         $pedido->empleado_id = auth()->user()->id;
         $pedido->cliente_id = $request->cliente;
+        $pedido->fecha_solicitado = $request->fecha_pedido;
         $pedido->save();
 
         DB::commit();
@@ -133,6 +134,7 @@ class PedidoController extends Controller
         $pedido->descripcion = $request->descripcion;
         $pedido->fecha_pedido = $request->fecha_pedido;
         $pedido->cliente_id = $request->cliente;
+        $pedido->fecha_solicitado = $request->fecha_pedido;
         $pedido->save();
 
         DB::commit();
@@ -208,5 +210,21 @@ class PedidoController extends Controller
         DB::commit();
 
         return redirect()->route('admin.pedidos.edit', [$pedido->id]);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Metodos para Proceso de Estodos de Pedidos
+    |--------------------------------------------------------------------------
+    */
+
+    public function proceso_index()
+    {
+        $pedidos = Pedido::all();
+
+        return view('admin.procesos.index', [
+            'pedidos' => $pedidos,
+            'empresa' => $this->empresa
+        ]);
     }
 }

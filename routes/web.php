@@ -20,20 +20,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     //  Dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard.index');
 
-    //  Pedidos
-    Route::get('/pedidos', 'PedidoController@index')->name('admin.pedidos.index');
-    Route::get('/pedidos/crear', 'PedidoController@create')->name('admin.pedidos.create');
-    Route::post('/pedidos', 'PedidoController@store')->name('admin.pedidos.store');
-    Route::get('/pedidos/{pedido}', 'PedidoController@show')->name('admin.pedidos.show');
-    Route::get('/pedidos/{pedido}/editar', 'PedidoController@edit')->name('admin.pedidos.edit');
-    Route::put('/pedidos/{pedido}', 'PedidoController@update')->name('admin.pedidos.update');
-    Route::delete('/pedidos/{pedido}', 'PedidoController@destroy')->name('admin.pedidos.destroy');
-
-    // Detalle Pedidos
-    Route::post('/pedidos/{pedido}/detalle', 'PedidoController@detalle_store')->name('admin.pedidos.detalle.store');
-    Route::put('/pedidos/{pedido}/detalle/{detalle}', 'PedidoController@detalle_update')->name('admin.pedidos.detalle.update');
-    Route::delete('/pedidos/{pedido}/detalle/{detalle}', 'PedidoController@detalle_destroy')->name('admin.pedidos.detalle.destroy');
-
     //  Clientes
     Route::get('/clientes', 'ClienteController@index')->name('admin.clientes.index');
     Route::get('/clientes/crear', 'ClienteController@create')->name('admin.clientes.create');
@@ -61,6 +47,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::put('/empleados/{empleado}', 'EmpleadoController@update')->name('admin.empleados.update');
     Route::delete('/empleados/{empleado}', 'EmpleadoController@destroy')->name('admin.empleados.destroy');
 
+    //  Pedidos
+    Route::get('/pedidos', 'PedidoController@index')->name('admin.pedidos.index');
+    Route::get('/pedidos/crear', 'PedidoController@create')->name('admin.pedidos.create');
+    Route::post('/pedidos', 'PedidoController@store')->name('admin.pedidos.store');
+    Route::get('/pedidos/{pedido}', 'PedidoController@show')->name('admin.pedidos.show');
+    Route::get('/pedidos/{pedido}/editar', 'PedidoController@edit')->name('admin.pedidos.edit');
+    Route::put('/pedidos/{pedido}', 'PedidoController@update')->name('admin.pedidos.update');
+    Route::delete('/pedidos/{pedido}', 'PedidoController@destroy')->name('admin.pedidos.destroy');
 
+    //  Detalle Pedidos
+    Route::post('/pedidos/{pedido}/detalle', 'PedidoController@detalle_store')->name('admin.pedidos.detalle.store');
+    Route::put('/pedidos/{pedido}/detalle/{detalle}', 'PedidoController@detalle_update')->name('admin.pedidos.detalle.update');
+    Route::delete('/pedidos/{pedido}/detalle/{detalle}', 'PedidoController@detalle_destroy')->name('admin.pedidos.detalle.destroy');
+
+    //  Proceso de Pedidos
+    Route::get('/proceso-pedidos', 'PedidoController@proceso_index')->name('admin.procesos.index');
 
 });

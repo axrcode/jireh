@@ -15,6 +15,7 @@ class AddFieldsStateTablePedidos extends Migration
     {
         Schema::table('pedidos', function (Blueprint $table) {
             $table->string('fecha_solicitado')->nullable();
+            $table->string('fecha_despachado')->nullable();
             $table->string('fecha_proceso')->nullable();
             $table->string('fecha_terminado')->nullable();
             $table->string('fecha_entregado')->nullable();

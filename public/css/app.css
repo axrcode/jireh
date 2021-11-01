@@ -68085,6 +68085,31 @@ a.text-dark:focus {
   }
 }
 
+.bg-state-red {
+  background: #EC7774 !important;
+  color: #E9ECEF !important;
+}
+
+.bg-state-orange {
+  background: #FDA962 !important;
+  color: #E9ECEF !important;
+}
+
+.bg-state-yellow {
+  background: #f5d51e !important;
+  color: #E9ECEF !important;
+}
+
+.bg-state-green {
+  background: #7AD5A1 !important;
+  color: #E9ECEF !important;
+}
+
+.bg-state-blue {
+  background: #77B5E7 !important;
+  color: #E9ECEF !important;
+}
+
 .bg-login {
   background: #E9ECEF;
 }

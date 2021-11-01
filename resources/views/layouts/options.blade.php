@@ -45,6 +45,13 @@
     </li>
     @endcan
 
+    <li class="nav-item">
+        <a href="{{ route('admin.procesos.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-hourglass-start"></i>
+            <p>Proceso de Pedidos</p>
+        </a>
+    </li>
+
     {{-- <li class="nav-item">
         <a href="#" class="nav-link">
             <i class="fas fa-cogs nav-icon"></i>
