@@ -117,7 +117,8 @@
                                     </div>
 
                                     <div class="col-md-1 py-0 px-1">
-                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100">
+                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
+                                            data-toggle="modal" data-target="#estadoDespachado_{{ $pedido->id }}">
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_despachado != null ? 'bg-state-orange' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -134,8 +135,34 @@
                                         </button>
                                     </div>
 
+                                    <!-- Modal cambiar estado a Despachado -->
+                                    <div class="modal fade" id="estadoDespachado_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoDespachado" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Cambiar Estado</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-wrap">
+                                                    ¿
+                                                    Cambiar el estado del pedido
+                                                    {{ $pedido->titulo }}
+                                                    a Despachado
+                                                    ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-1 py-0 px-1">
-                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100">
+                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
+                                            data-toggle="modal" data-target="#estadoProceso_{{ $pedido->id }}">
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_proceso != null ? 'bg-state-yellow' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -152,8 +179,34 @@
                                         </button>
                                     </div>
 
+                                    <!-- Modal cambiar estado a En Proceso -->
+                                    <div class="modal fade" id="estadoProceso_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoProceso" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Cambiar Estado</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-wrap">
+                                                    ¿
+                                                    Cambiar el estado del pedido
+                                                    {{ $pedido->titulo }}
+                                                    a En Proceso
+                                                    ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-1 py-0 px-1">
-                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100">
+                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
+                                            data-toggle="modal" data-target="#estadoTerminado_{{ $pedido->id }}">
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_terminado != null ? 'bg-state-green' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -170,8 +223,34 @@
                                         </button>
                                     </div>
 
+                                    <!-- Modal cambiar estado a Terminado -->
+                                    <div class="modal fade" id="estadoTerminado_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoTerminado" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Cambiar Estado</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-wrap">
+                                                    ¿
+                                                    Cambiar el estado del pedido
+                                                    {{ $pedido->titulo }}
+                                                    a Terminado
+                                                    ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="col-md-1 py-0 px-1">
-                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100">
+                                        <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
+                                            data-toggle="modal" data-target="#estadoEntregado_{{ $pedido->id }}">
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_entregado != null ? 'bg-state-blue' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -186,6 +265,31 @@
                                                 </div>
                                             </div>
                                         </button>
+                                    </div>
+
+                                    <!-- Modal cambiar estado a Entregado -->
+                                    <div class="modal fade" id="estadoEntregado_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoEntregado" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Cambiar Estado</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body text-wrap">
+                                                    ¿
+                                                    Cambiar el estado del pedido
+                                                    {{ $pedido->titulo }}
+                                                    a Entregado
+                                                    ?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
+                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
