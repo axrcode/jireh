@@ -16,6 +16,13 @@ class DeptoController extends Controller
     {
         //  Company Information
         $this->empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+
+        //  Permisos
+        $this->middleware('can:admin/departamentos')->only('index');
+        $this->middleware('can:admin/departamentos/create')->only('create', 'store');
+        $this->middleware('can:admin/departamentos/show')->only('show');
+        $this->middleware('can:admin/departamentos/edit')->only('edit', 'update');
+        $this->middleware('can:admin/departamentos/delete')->only('destroy');
     }
 
     /**

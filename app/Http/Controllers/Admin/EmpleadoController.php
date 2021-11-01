@@ -20,6 +20,13 @@ class EmpleadoController extends Controller
     {
         //  Company Information
         $this->empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+
+        //  Permisos
+        $this->middleware('can:admin/empleados')->only('index');
+        $this->middleware('can:admin/empleados/create')->only('create', 'store');
+        $this->middleware('can:admin/empleados/show')->only('show');
+        $this->middleware('can:admin/empleados/edit')->only('edit', 'update');
+        $this->middleware('can:admin/empleados/delete')->only('destroy');
     }
 
     /**
@@ -136,7 +143,7 @@ class EmpleadoController extends Controller
      */
     public function show(Empleado $empleado)
     {
-        //
+        return abort('404');
     }
 
     /**

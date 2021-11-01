@@ -17,6 +17,13 @@ class PedidoController extends Controller
     {
         //  Company Information
         $this->empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+
+        //  Permisos
+        $this->middleware('can:admin/pedidos')->only('index');
+        $this->middleware('can:admin/pedidos/create')->only('create', 'store', 'detalle_store');
+        $this->middleware('can:admin/pedidos/show')->only('show');
+        $this->middleware('can:admin/pedidos/edit')->only('edit', 'update', 'detalle_update');
+        $this->middleware('can:admin/pedidos/delete')->only('destroy', 'detalle_destroy');
     }
 
     /**

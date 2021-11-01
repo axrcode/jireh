@@ -16,6 +16,13 @@ class ClienteController extends Controller
     {
         //  Company Information
         $this->empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+
+        //  Permisos
+        $this->middleware('can:admin/clientes')->only('index');
+        $this->middleware('can:admin/clientes/create')->only('create', 'store');
+        $this->middleware('can:admin/clientes/show')->only('show');
+        $this->middleware('can:admin/clientes/edit')->only('edit', 'update');
+        $this->middleware('can:admin/clientes/delete')->only('destroy');
     }
 
     /**
