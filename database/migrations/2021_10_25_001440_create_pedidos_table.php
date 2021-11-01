@@ -20,7 +20,7 @@ class CreatePedidosTable extends Migration
             $table->text('descripcion')->nullable();
             $table->string('fecha_pedido')->nullable();
             $table->string('fecha_entrega')->nullable();
-            $table->string('estado')->default('pendiente');
+            $table->string('estado')->default('Solicitado');
             $table->foreignId('empleado_id')->references('id')->on('empleados');
             $table->foreignId('cliente_id')->references('id')->on('clientes');
             $table->timestamps();
