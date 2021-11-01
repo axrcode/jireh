@@ -29,9 +29,9 @@
 
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="titulo">Estado</label>
+                            <label for="estado">Estado</label>
                             <select
-                                class="form-control select2bs4"
+                                class="form-control"
                                 wire:model="estado">
                                 <option value="Todos">Todos</option>
                                 <option value="Solicitado">Solicitado</option>
@@ -53,6 +53,12 @@
                                 placeholder="Buscar una palabra clave..."
                             >
                         </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <button class="btn btn-primary btn-flat btn-sm px-3" wire:click='limpiar()'>
+                            Limpiar
+                        </button>
                     </div>
 
                 </div>
