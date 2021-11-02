@@ -220,10 +220,7 @@ class PedidoController extends Controller
 
     public function proceso_index()
     {
-        $pedidos = Pedido::all();
-
         return view('admin.procesos.index', [
-            'pedidos' => $pedidos,
             'empresa' => $this->empresa
         ]);
     }

@@ -41,5 +41,20 @@
     <!--    Livewire Scripts                    -->
     @livewireScripts
 
+    <script>
+        window.livewire.on('msg-ok', msg =>{
+            console.log('sjhdgaskjhdgas');
+            toastr.success( msg );
+        });
+
+        window.livewire.on('msg-info', msg =>{
+            toastr.info( msg );
+        });
+
+        window.livewire.on('msg-error', msg =>{
+            toastr.error( msg );
+        });
+    </script>
+
 </body>
 </html>

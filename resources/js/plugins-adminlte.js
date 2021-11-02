@@ -20,4 +20,5 @@ toastr = require('admin-lte/plugins/toastr/toastr.min.js');
 toastr.options = {
     "closeButton": true,
     "progressBar": true,
+    "fadeOut": 3000,
 }

@@ -106,7 +106,7 @@
                                                         <i class="fas {{ $pedido->fecha_solicitado != null ? 'fa-check-circle' : 'fa-circle' }}"></i>
                                                     </h4>
                                                     <span class="badge {{ $pedido->fecha_solicitado != null ? 'bg-danger' : 'bg-secondary' }}">
-                                                        {{ $pedido->fecha_solicitado != null ? 'Solicitado' : 'Pendiente' }}
+                                                        Solicitado
                                                     </span>
                                                     <p class="m-0 small font-weight-bold pt-2">
                                                         {{ $pedido->fecha_solicitado != null ? date('d/m/Y', strtotime($pedido->fecha_solicitado)) : '-' }}
@@ -125,7 +125,7 @@
                                                         <i class="fas {{ $pedido->fecha_despachado != null ? 'fa-check-circle' : 'fa-circle' }}"></i>
                                                     </h4>
                                                     <span class="badge {{ $pedido->fecha_despachado != null ? 'bg-orange' : 'bg-secondary' }}">
-                                                        {{ $pedido->fecha_despachado != null ? 'Despachado' : 'Pendiente' }}
+                                                        Despachado
                                                     </span>
                                                     <p class="m-0 small font-weight-bold pt-2">
                                                         {{ $pedido->fecha_despachado != null ? date('d/m/Y', strtotime($pedido->fecha_despachado)) : '-' }}
@@ -154,7 +154,10 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                    <button type="button" class="btn btn-primary btn-flat btn-sm" data-dismiss="modal"
+                                                        wire:click="despachado({{$pedido->id}})">
+                                                        Confirmar
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,7 +172,7 @@
                                                         <i class="fas {{ $pedido->fecha_proceso != null ? 'fa-check-circle' : 'fa-circle' }}"></i>
                                                     </h4>
                                                     <span class="badge {{ $pedido->fecha_proceso != null ? 'bg-warning' : 'bg-secondary' }}">
-                                                        {{ $pedido->fecha_proceso != null ? 'En Proceso' : 'Pendiente' }}
+                                                        En Proceso
                                                     </span>
                                                     <p class="m-0 small font-weight-bold pt-2">
                                                         {{ $pedido->fecha_proceso != null ? date('d/m/Y', strtotime($pedido->fecha_proceso)) : '-' }}
@@ -198,7 +201,10 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                    <button type="button" class="btn btn-primary btn-flat btn-sm" data-dismiss="modal"
+                                                        wire:click="enProceso({{$pedido->id}})">
+                                                        Confirmar
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,7 +219,7 @@
                                                         <i class="fas {{ $pedido->fecha_terminado != null ? 'fa-check-circle' : 'fa-circle' }}"></i>
                                                     </h4>
                                                     <span class="badge {{ $pedido->fecha_terminado != null ? 'bg-success' : 'bg-secondary' }}">
-                                                        {{ $pedido->fecha_terminado != null ? 'Terminado' : 'Pendiente' }}
+                                                        Terminado
                                                     </span>
                                                     <p class="m-0 small font-weight-bold pt-2">
                                                         {{ $pedido->fecha_terminado != null ? date('d/m/Y', strtotime($pedido->fecha_terminado)) : '-' }}
@@ -242,7 +248,10 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                    <button type="button" class="btn btn-primary btn-flat btn-sm" data-dismiss="modal"
+                                                        wire:click="terminado({{$pedido->id}})">
+                                                        Confirmar
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -257,7 +266,7 @@
                                                         <i class="fas {{ $pedido->fecha_entregado != null ? 'fa-check-circle' : 'fa-circle' }}"></i>
                                                     </h4>
                                                     <span class="badge {{ $pedido->fecha_entregado != null ? 'bg-primary' : 'bg-secondary' }}">
-                                                        {{ $pedido->fecha_entregado != null ? 'Entregado' : 'Pendiente' }}
+                                                        Entregado
                                                     </span>
                                                     <p class="m-0 small font-weight-bold pt-2">
                                                         {{ $pedido->fecha_entregado != null ? date('d/m/Y', strtotime($pedido->fecha_entregado)) : '-' }}
@@ -286,7 +295,10 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" class="btn btn-primary btn-flat btn-sm">Confirmar</button>
+                                                    <button type="button" class="btn btn-primary btn-flat btn-sm" data-dismiss="modal"
+                                                        wire:click="entregado({{$pedido->id}})">
+                                                        Confirmar
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

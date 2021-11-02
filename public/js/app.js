@@ -87115,7 +87115,8 @@ __webpack_require__(/*! admin-lte/plugins/select2/js/select2.full.min.js */ "./n
 toastr = __webpack_require__(/*! admin-lte/plugins/toastr/toastr.min.js */ "./node_modules/admin-lte/plugins/toastr/toastr.min.js");
 toastr.options = {
   "closeButton": true,
-  "progressBar": true
+  "progressBar": true,
+  "fadeOut": 3000
 };
 
 /***/ }),
