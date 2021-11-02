@@ -146,11 +146,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-wrap">
-                                                    ¿
-                                                    Cambiar el estado del pedido
-                                                    {{ $pedido->titulo }}
-                                                    a Despachado
-                                                    ?
+                                                    @if ( $pedido->estado == 'Solicitado' )
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'Despachado'</b> ?
+                                                    @elseif ( $pedido->estado == 'Despachado')
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'Solicitado'</b> ?
+                                                        @else
+                                                            No se puede cambiar el estado del pedido a <b>'Despachado'</b> debido a que su estado actual es <b>'{{ $pedido->estado }}'</b>
+                                                    @endif
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
@@ -193,11 +195,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-wrap">
-                                                    ¿
-                                                    Cambiar el estado del pedido
-                                                    {{ $pedido->titulo }}
-                                                    a En Proceso
-                                                    ?
+                                                    @if ( $pedido->estado == 'Despachado' )
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'En Proceso'</b> ?
+                                                    @elseif ( $pedido->estado == 'En Proceso' )
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'Despachado'</b> ?
+                                                        @else
+                                                            No se puede cambiar el estado del pedido a <b>'En Proceso'</b> debido a que su estado actual es <b>'{{ $pedido->estado }}'</b>
+                                                    @endif
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
@@ -240,11 +244,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-wrap">
-                                                    ¿
-                                                    Cambiar el estado del pedido
-                                                    {{ $pedido->titulo }}
-                                                    a Terminado
-                                                    ?
+                                                    @if ( $pedido->estado == 'En Proceso' )
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'Terminado'</b> ?
+                                                    @elseif ( $pedido->estado == 'Terminado' )
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'En Proceso'</b> ?
+                                                    @else
+                                                        No se puede cambiar el estado del pedido a <b>'Terminado'</b> debido a que su estado actual es <b>'{{ $pedido->estado }}'</b>
+                                                    @endif
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
@@ -287,11 +293,13 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body text-wrap">
-                                                    ¿
-                                                    Cambiar el estado del pedido
-                                                    {{ $pedido->titulo }}
-                                                    a Entregado
-                                                    ?
+                                                    @if ( $pedido->estado == 'Terminado' )
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'Entregado'</b> ?
+                                                    @elseif ( $pedido->estado == 'Entregado' )
+                                                        ¿ Cambiar el estado del pedido {{ $pedido->titulo }} a <b>'Terminado'</b> ?
+                                                    @else
+                                                        No se puede cambiar el estado del pedido a <b>'Entregado'</b> debido a que su estado actual es <b>'{{ $pedido->estado }}'</b>
+                                                    @endif
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light btn-flat btn-sm" data-dismiss="modal">Cancelar</button>
