@@ -58,7 +58,7 @@
                 <div class="row">
 
                     <div class="col-xl-3 col-md-4 col-sm-6 col-12">
-                        <a href="{{ route('admin.colaborador.index') }}" class="text-decoration-none">
+                        <a href="" class="text-decoration-none">
                             <div class="small-box bg-gradient-lightblue">
                                 <div class="inner">
                                     <h3>{{ $total_colaboradores }}</h3>
@@ -72,7 +72,7 @@
                     </div>
 
                     <div class="col-xl-3 col-md-4 col-sm-6 col-12">
-                        <a href="{{ route('admin.estudiante.index') }}" class="text-decoration-none">
+                        <a href="" class="text-decoration-none">
                             <div class="small-box bg-gradient-teal">
                                 <div class="inner">
                                     <h3>{{ $total_estudiantes }}</h3>
@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="col-xl-3 col-md-4 col-sm-6 col-12">
-                        <a href="{{ route('admin.estudiante.index') }}" class="text-decoration-none">
+                        <a href="" class="text-decoration-none">
                             <div class="small-box bg-gradient-indigo">
                                 <div class="inner">
                                     <h3>{{ $total_inscripciones }}</h3>

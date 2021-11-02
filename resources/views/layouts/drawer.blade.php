@@ -36,15 +36,6 @@
 
                 @include('layouts.options')
 
-                <!-- Opciones de Administrador -->
-                {{-- @include('layouts.options_admin') --}}
-
-                <!-- Opciones de Estudiante -->
-                {{-- @include('layouts.options_estudiante') --}}
-
-                <!-- Opciones de Docente -->
-                {{-- @include('layouts.options_docente') --}}
-
             </ul>
         </nav>
 
