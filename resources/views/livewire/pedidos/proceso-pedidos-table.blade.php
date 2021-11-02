@@ -118,7 +118,7 @@
 
                                     <div class="col-md-1 py-0 px-1">
                                         <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
-                                            data-toggle="modal" data-target="#estadoDespachado_{{ $pedido->id }}">
+                                            @can('admin/proceso-pedidos/despachado') data-toggle="modal" data-target="#estadoDespachado_{{ $pedido->id }}" @endcan>
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_despachado != null ? 'bg-state-orange' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -136,6 +136,7 @@
                                     </div>
 
                                     <!-- Modal cambiar estado a Despachado -->
+                                    @can('admin/proceso-pedidos/despachado')
                                     <div class="modal fade" id="estadoDespachado_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoDespachado" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -164,10 +165,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endcan
 
                                     <div class="col-md-1 py-0 px-1">
                                         <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
-                                            data-toggle="modal" data-target="#estadoProceso_{{ $pedido->id }}">
+                                            @can('admin/proceso-pedidos/proceso') data-toggle="modal" data-target="#estadoProceso_{{ $pedido->id }}" @endcan>
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_proceso != null ? 'bg-state-yellow' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -184,6 +186,7 @@
                                         </button>
                                     </div>
 
+                                    @can('admin/proceso-pedidos/proceso')
                                     <!-- Modal cambiar estado a En Proceso -->
                                     <div class="modal fade" id="estadoProceso_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoProceso" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -213,10 +216,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endcan
 
                                     <div class="col-md-1 py-0 px-1">
                                         <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
-                                            data-toggle="modal" data-target="#estadoTerminado_{{ $pedido->id }}">
+                                            @can('admin/proceso-pedidos/terminado') data-toggle="modal" data-target="#estadoTerminado_{{ $pedido->id }}" @endcan>
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_terminado != null ? 'bg-state-green' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -234,6 +238,7 @@
                                     </div>
 
                                     <!-- Modal cambiar estado a Terminado -->
+                                    @can('admin/proceso-pedidos/terminado')
                                     <div class="modal fade" id="estadoTerminado_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoTerminado" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -262,10 +267,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endcan
 
                                     <div class="col-md-1 py-0 px-1">
                                         <button class="btn btn-flat btn-link text-decoration-none p-0 h-100 w-100"
-                                            data-toggle="modal" data-target="#estadoEntregado_{{ $pedido->id }}">
+                                         @can('admin/proceso-pedidos/entregado') data-toggle="modal" data-target="#estadoEntregado_{{ $pedido->id }}" @endcan>
                                             <div class="card h-100">
                                                 <div class="card-body {{ $pedido->fecha_entregado != null ? 'bg-state-blue' : 'bg-light text-muted' }} px-0">
                                                     <h4>
@@ -283,6 +289,7 @@
                                     </div>
 
                                     <!-- Modal cambiar estado a Entregado -->
+                                    @can('admin/proceso-pedidos/entregado')
                                     <div class="modal fade" id="estadoEntregado_{{ $pedido->id }}" tabindex="-1" aria-labelledby="estadoEntregado" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -311,6 +318,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @endcan
 
                                 </div>
                             </div>

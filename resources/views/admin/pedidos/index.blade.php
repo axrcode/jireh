@@ -39,25 +39,27 @@
 
                 <div class="row">
 
-                    <div class="col-12">
-                        <div class="card shadow-none">
-                            <div class="card-body">
+                    @can('admin/pedidos/create')
+                        <div class="col-12">
+                            <div class="card shadow-none">
+                                <div class="card-body">
 
-                                <div class="row">
+                                    <div class="row">
 
-                                        <div class="col-md-4">
-                                            <a  href="{{ route('admin.pedidos.create') }}"
-                                                class="btn btn-primary btn-sm btn-flat px-3">
-                                                <i class="fas fa-plus-square mr-2"></i>
-                                                Crear nuevo pedido
-                                            </a>
-                                        </div>
+                                            <div class="col-md-4">
+                                                <a  href="{{ route('admin.pedidos.create') }}"
+                                                    class="btn btn-primary btn-sm btn-flat px-3">
+                                                    <i class="fas fa-plus-square mr-2"></i>
+                                                    Crear nuevo pedido
+                                                </a>
+                                            </div>
+
+                                    </div>
 
                                 </div>
-
                             </div>
                         </div>
-                    </div>
+                    @endcan
 
                     <div class="col-12">
                         <div class="card shadow-none">
@@ -130,13 +132,14 @@
                                                             <i class="fas fa-id-card"></i>
                                                         </a>
 
+                                                    @can('admin/pedidos/edit')
                                                         <a  href="{{ route('admin.pedidos.edit', [$pedido->id]) }}"
                                                             class="btn btn-primary btn-sm btn-flat"
                                                             data-toggle="tooltip" data-placement="top" title="Ver Informacion Grado"
                                                         >
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-
+                                                    @endcan
                                                 </td>
                                             </tr>
                                         @endforeach

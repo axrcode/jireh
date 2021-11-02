@@ -24,6 +24,7 @@ class PedidoController extends Controller
         $this->middleware('can:admin/pedidos/show')->only('show');
         $this->middleware('can:admin/pedidos/edit')->only('edit', 'update', 'detalle_update');
         $this->middleware('can:admin/pedidos/delete')->only('destroy', 'detalle_destroy');
+        $this->middleware('can:admin/proceso-pedidos')->only('proceso_index');
     }
 
     /**
