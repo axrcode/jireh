@@ -22,12 +22,6 @@ class RolesOneSeeder extends Seeder
         $entrega = Role::find(5);
         $none = Role::find(6);
 
-        // CRUD Pedidos
-        Permission::create(['name' => 'admin/proceso-pedidos'])->syncRoles([$sa, $pedido, $bodega, $produccion, $sqa, $entrega]);
-        Permission::create(['name' => 'admin/proceso-pedidos/solicitado'])->syncRoles([$sa, $pedido]);
-        Permission::create(['name' => 'admin/proceso-pedidos/despachado'])->syncRoles([$sa, $pedido, $bodega]);
-        Permission::create(['name' => 'admin/proceso-pedidos/proceso'])->syncRoles([$sa, $pedido, $produccion]);
-        Permission::create(['name' => 'admin/proceso-pedidos/terminado'])->syncRoles([$sa, $sqa]);
-        Permission::create(['name' => 'admin/proceso-pedidos/entregado'])->syncRoles([$sa, $entrega]);
-    }
+
+   }
 }

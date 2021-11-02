@@ -61,5 +61,12 @@ class NewRolesSeeder extends Seeder
         Permission::create(['name' => 'admin/pedidos/show'])->syncRoles([$sa, $pedido, $bodega, $produccion, $sqa, $entrega]);
         Permission::create(['name' => 'admin/pedidos/delete'])->syncRoles([$sa, $pedido]);
 
+        // CRUD Proceso de Pedidos
+        Permission::create(['name' => 'admin/proceso-pedidos'])->syncRoles([$sa, $pedido, $bodega, $produccion, $sqa, $entrega]);
+        Permission::create(['name' => 'admin/proceso-pedidos/solicitado'])->syncRoles([$sa, $pedido]);
+        Permission::create(['name' => 'admin/proceso-pedidos/despachado'])->syncRoles([$sa, $pedido, $bodega]);
+        Permission::create(['name' => 'admin/proceso-pedidos/proceso'])->syncRoles([$sa, $pedido, $produccion]);
+        Permission::create(['name' => 'admin/proceso-pedidos/terminado'])->syncRoles([$sa, $sqa]);
+        Permission::create(['name' => 'admin/proceso-pedidos/entregado'])->syncRoles([$sa, $entrega]);
     }
 }
