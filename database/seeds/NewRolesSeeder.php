@@ -68,5 +68,8 @@ class NewRolesSeeder extends Seeder
         Permission::create(['name' => 'admin/proceso-pedidos/proceso'])->syncRoles([$sa, $pedido, $produccion]);
         Permission::create(['name' => 'admin/proceso-pedidos/terminado'])->syncRoles([$sa, $sqa]);
         Permission::create(['name' => 'admin/proceso-pedidos/entregado'])->syncRoles([$sa, $entrega]);
+
+        // Reporte de pedidos
+        Permission::create(['name' => 'admin/reporte/pedidos'])->syncRoles([$sa, $pedido]);
     }
 }

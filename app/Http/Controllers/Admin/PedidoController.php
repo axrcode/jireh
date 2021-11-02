@@ -225,4 +225,20 @@ class PedidoController extends Controller
             'empresa' => $this->empresa
         ]);
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Metodos para Reporte de Pedidos
+    |--------------------------------------------------------------------------
+    */
+
+    public function reporte_pedidos()
+    {
+        $pedidos = Pedido::all();
+
+        return view('admin.reportes.pedidos', [
+            'pedidos' => $pedidos,
+            'empresa' => $this->empresa
+        ]);
+    }
 }

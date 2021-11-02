@@ -64,4 +64,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     //  Proceso de Pedidos
     Route::get('/proceso-pedidos', 'PedidoController@proceso_index')->name('admin.procesos.index');
 
+    //  Reporte de Pedidos
+    Route::get('/reporte/pedidos', 'PedidoController@reporte_pedidos')->name('admin.reporte.pedidos');
+
 });

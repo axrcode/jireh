@@ -45,12 +45,23 @@
     </li>
     @endcan
 
+    @can('admin/proceso-pedidos')
     <li class="nav-item">
         <a href="{{ route('admin.procesos.index') }}" class="nav-link">
             <i class="nav-icon fas fa-hourglass-start"></i>
             <p>Proceso de Pedidos</p>
         </a>
     </li>
+    @endcan
+
+    @can('admin/reporte/pedidos')
+    <li class="nav-item">
+        <a href="{{ route('admin.reporte.pedidos') }}" class="nav-link">
+            <i class="nav-icon fas fa-chart-bar"></i>
+            <p>Reporte Pedidos</p>
+        </a>
+    </li>
+    @endcan
 
     {{-- <li class="nav-item">
         <a href="#" class="nav-link">
