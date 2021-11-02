@@ -14,8 +14,11 @@ require('admin-lte/plugins/inputmask/jquery.inputmask');
 // Select2
 require('admin-lte/plugins/select2/js/select2.full.min.js');
 
+// ChartJS
+require('admin-lte/plugins/select2/js/select2.full.min.js');
+
 //  Toastr
-toastr = require('admin-lte/plugins/toastr/toastr.min.js');
+toastr = require('admin-lte/plugins/chart.js/Chart.min.js');
 
 toastr.options = {
     "closeButton": true,

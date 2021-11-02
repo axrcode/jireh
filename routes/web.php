@@ -19,6 +19,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
 {
     //  Dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('admin.dashboard.index');
+    Route::post('/dashboard/pedidos/estados', 'DashboardController@graphic')->name('admin.dashboard.graphic');
 
     //  Clientes
     Route::get('/clientes', 'ClienteController@index')->name('admin.clientes.index');
