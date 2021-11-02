@@ -150,12 +150,15 @@
                                             <thead>
                                                 <tr>
                                                     <th style="width: 20%">
+                                                        Categoría</th>
+                                                    </th>
+                                                    <th style="width: 20%">
                                                         Talla
                                                     </th>
                                                     <th style="width: 20%">
                                                         Cantidad
                                                     </th>
-                                                    <th style="width: 50%">
+                                                    <th style="width: 30%">
                                                         Descripción
                                                     </th>
                                                     <th style="width: 10%">
@@ -166,6 +169,7 @@
                                             <tbody>
                                                 @foreach ($detalle_pedido as $item)
                                                     <tr>
+                                                        <td>{{ $item->tipo }}</td>
                                                         <td>{{ $item->talla }}</td>
                                                         <td>{{ $item->cantidad }}</td>
                                                         <td>{{ $item->descripcion }}</td>
@@ -191,6 +195,25 @@
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <div class="row">
+
+                                                                                    <div class="col-md-12">
+                                                                                        <div class="form-group">
+                                                                                            <label for="tipo_item">Categoría</label>
+                                                                                            <select
+                                                                                                class="form-control select2bs4"
+                                                                                                name="tipo_item"
+                                                                                                id="tipo_item"
+                                                                                                required>
+                                                                                                <option value="Camisa" {{ $item->tipo == 'Camisa' ? 'selected' : '' }}>Camisa</option>
+                                                                                                <option value="Playera" {{ $item->tipo == 'Playera' ? 'selected' : '' }}>Playera</option>
+                                                                                                <option value="Pantalon" {{ $item->tipo == 'Pantalon' ? 'selected' : '' }}>Pantalon</option>
+                                                                                                <option value="Pantaloneta" {{ $item->tipo == 'Pantaloneta' ? 'selected' : '' }}>Pantaloneta</option>
+                                                                                                <option value="Sueter" {{ $item->tipo == 'Sueter' ? 'selected' : '' }}>Sueter</option>
+                                                                                                <option value="Chumpa" {{ $item->tipo == 'Chumpa' ? 'selected' : '' }}>Chumpa</option>
+                                                                                                <option value="Otro" {{ $item->tipo == 'Otro' ? 'selected' : '' }}>Otro</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
 
                                                                                     <div class="col-md-6">
                                                                                         <div class="form-group">
@@ -329,6 +352,25 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="tipo">Categoría</label>
+                                    <select
+                                        class="form-control select2bs4"
+                                        name="tipo"
+                                        id="tipo"
+                                        required>
+                                        <option value="Camisa">Camisa</option>
+                                        <option value="Playera">Playera</option>
+                                        <option value="Pantalon">Pantalon</option>
+                                        <option value="Pantaloneta">Pantaloneta</option>
+                                        <option value="Sueter">Sueter</option>
+                                        <option value="Chumpa">Chumpa</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
 
                             <div class="col-md-6">
                                 <div class="form-group">

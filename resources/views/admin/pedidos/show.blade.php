@@ -53,7 +53,7 @@
 
                                         <small class="float-right">
                                             <b>Fecha y Hora:</b>
-                                            {{ date('d-m-Y h:i a') }}
+                                            {{ date('d-m-Y') }}
                                         </small>
                                     </h4>
                                 </div>
@@ -90,18 +90,29 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-12">
+                                    <h4 class="font-weight-bold mt-2">{{ $pedido->titulo }}</h4>
+                                </div>
+                                <div class="col-12">
+                                    <h5 class="mb-3">{{ $pedido->descripcion }}</h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-12 table-responsive">
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th style="width:30%">Talla</th>
-                                                <th style="width:30%">Cantidad</th>
+                                                <th style="width:20%">Categoría</th>
+                                                <th style="width:20%">Talla</th>
+                                                <th style="width:20%">Cantidad</th>
                                                 <th style="width:40%">Descripcion</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($pedido->detallePedido as $item)
                                                 <tr>
+                                                    <td>{{ $item->tipo }}</td>
                                                     <td>{{ $item->talla }}</td>
                                                     <td>{{ $item->cantidad }}</td>
                                                     <td>{{ $item->descripcion }}</td>
@@ -112,17 +123,13 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-6 offset-6">
-
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <tr>
-                                                <th>Total:</th>
-                                                <td>$265.24</td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                            <div class="row no-print">
+                                <div class="col-12 mt-3">
+                                  <button type="button" class="btn btn-primary btn-flat btn-sm px-4"
+                                    onclick="window.print()">
+                                      <i class="fas fa-print"></i>
+                                      Print
+                                    </button>
                                 </div>
                             </div>
 
@@ -130,7 +137,6 @@
                     </div>
 
                 </div>
-
 
             </div>
         </div>

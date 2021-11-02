@@ -181,6 +181,7 @@ class PedidoController extends Controller
         $detalle_pedido = new DetallePedido;
         $detalle_pedido->pedido_id = $pedido->id;
         $detalle_pedido->talla = $request->talla;
+        $detalle_pedido->tipo = $request->tipo;
         $detalle_pedido->cantidad = $request->cantidad;
         $detalle_pedido->descripcion = $request->descripcion;
         $detalle_pedido->save();
@@ -195,6 +196,7 @@ class PedidoController extends Controller
         DB::beginTransaction();
 
         $detalle->talla = $request->talla;
+        $detalle->tipo = $request->tipo_item;
         $detalle->cantidad = $request->cantidad;
         $detalle->descripcion = $request->descripcion;
         $detalle->save();
