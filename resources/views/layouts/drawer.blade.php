@@ -44,18 +44,12 @@
     <form action="{{ route('logout') }}" method="POST">
         @csrf
 
-        <div class="sidebar-custom">
-
-            <a href="" class="btn btn-link text-light mt-n1">
-                <i class="fas fa-cogs"></i>
-            </a>
-
+        <div class="col-12">
             <button type="submit"
-                class="btn btn-danger btn-sm btn-flat pos-right px-3 mr-2">
+                class="btn btn-outline-danger btn-sm btn-flat btn-block">
                 <i class="fas fa-sign-out-alt"></i>
                 {{ __('Logout') }}
             </button>
-
         </div>
     </form>
 </aside>
