@@ -232,12 +232,42 @@ class PedidoController extends Controller
     |--------------------------------------------------------------------------
     */
 
-    public function reporte_pedidos()
+    public function reporte_pedidos(Request $request)
     {
-        $pedidos = Pedido::all();
+        $inicio = $request->inicio;
+        $final = $request->final;
+        $estado = $request->estado;
+
+        $estado == 'Todos' ? $all = 1 : $all = 0;
+
+        if ( $inicio == null ) {
+            $inicio = date('Y-m-d');
+        } else {
+            $inicio = $request->inicio;
+        }
+
+        if ( $final == null ) {
+            $final = date('Y-m-d');
+        } else {
+            $final = $request->final;
+        }
+
+
+        if ( $estado == null ) {
+            $pedidos = Pedido::all();
+        } else {
+            if ( $estado == 'Todos' ) {
+                $pedidos = Pedido::whereBetween('fecha_pedido', [$inicio, $final])->get();
+            } else {
+                $pedidos = Pedido::where('estado', $estado)->whereBetween('fecha_pedido', [$inicio, $final])->get();
+            }
+        }
 
         return view('admin.reportes.pedidos', [
             'pedidos' => $pedidos,
+            'inicio' => $inicio,
+            'final' => $final,
+            'estado' => $estado,
             'empresa' => $this->empresa
         ]);
     }

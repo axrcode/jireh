@@ -43,11 +43,60 @@
                         <div class="card shadow-none">
                             <div class="card-body">
 
-                                <div class="row">
+                                <form action="{{ route('admin.reporte.pedidos') }}" method="get">
+                                    <div class="row">
 
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="estado">Estado</label>
+                                                <select
+                                                    class="form-control select2bs4"
+                                                    id="estado"
+                                                    name="estado">
+                                                    <option value="Todos" {{ ($estado == 'Todos') ?  'selected' : '' }}>Todos</option>
+                                                    <option value="Solicitado" {{ ($estado == 'Solicitado') ?  'selected' : '' }}>Solicitado</option>
+                                                    <option value="Despachado" {{ ($estado == 'Desoachado') ?  'selected' : '' }}>Despachados</option>
+                                                    <option value="En Proceso" {{ ($estado == 'En Proceso') ?  'selected' : '' }}>En Proceso</option>
+                                                    <option value="Terminado" {{ ($estado == 'Terminado') ?  'selected' : '' }}>Terminados</option>
+                                                    <option value="Entregado" {{ ($estado == 'Entregado') ?  'selected' : '' }}>Entregado</option>
+                                                </select>
+                                            </div>
+                                        </div>
 
-                                </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="titulo">Fecha Inicial</label>
+                                                <input
+                                                    class="form-control"
+                                                    type="date"
+                                                    id="inicio"
+                                                    name="inicio"
+                                                    value="{{ date('Y-m-d', strtotime($inicio)) }}"
+                                                >
+                                            </div>
+                                        </div>
 
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="titulo">Fecha Final</label>
+                                                <input
+                                                    class="form-control"
+                                                    type="date"
+                                                    id="final"
+                                                    name="final"
+                                                    value="{{ date('Y-m-d', strtotime($final)) }}"
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2 offset-md-1 pt-4">
+                                            <button type="submit" class="btn btn-primary btn-block btn-flat btn-sm">
+                                                Filtrar
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
