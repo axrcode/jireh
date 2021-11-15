@@ -8,7 +8,7 @@
 
 # PROYECTO DE GRADUACIÓN
 
-Código fuente utilizado para la implementación de un sistema web para Control y Gestión de la materia prima de una Comercializadora dedicada a la producción de materiales e insumos para elaboración de productos textíles y de serigrafía. Elaborado bajo el lenguaje de programación <b>PHP</b> y el framework <b>Laravel</b>
+Código fuente utilizado para la implementación de un sistema web para Control y Gestión de los pedidos para una Comercializadora dedicada a la producción de materiales e insumos para elaboración de productos textíles y de serigrafía. El objetivo del sistema el llevar el control de la etapa de producción que se encuentra cada pedido. Elaborado bajo el lenguaje de programación <b>PHP</b>, utilizando el framework de <b>Laravel</b>.
 
 ## PAQUETES UTILIZADOS
 
@@ -16,6 +16,9 @@ Código fuente utilizado para la implementación de un sistema web para Control 
 
 - Laravel UI
 - Laraveles Spanish
+- Livewire
+- Laravel PDF by niklasravnsborg
+- Laravel Permission by spatie
 
 ```md
 composer install
@@ -37,3 +40,14 @@ npm install && npm run dev || npm run watch
 ```md
 php artisan migrate --seed
 ```
+
+### Demo
+
+<a href="http://comercializadora-jireh.herokuapp.com" target="_blank">
+    Ir al demo
+</a>
+
+#### Credenciales
+
+- <b>Usuario:</b> ADMIN
+- <b>Contraseña:</b> ADMIN
