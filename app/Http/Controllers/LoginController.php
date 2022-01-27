@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        $empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+        $empresa = Empresa::first();
 
         return view('auth.login', compact('empresa'));
     }

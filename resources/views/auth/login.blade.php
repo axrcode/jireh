@@ -12,7 +12,7 @@
 
     <div class="card border-0">
 
-        <div class="card-header text-center bg-light p-0">
+        <div class="card-header text-center bg-light p-0 py-4">
             <img
                 src="{{ $empresa->logo }}"
                 alt="Logo Empresa"

@@ -15,7 +15,7 @@ class ClienteController extends Controller
     public function __construct()
     {
         //  Company Information
-        $this->empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+        $this->empresa = Empresa::first();
 
         //  Permisos
         $this->middleware('can:admin/clientes')->only('index');

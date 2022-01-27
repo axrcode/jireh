@@ -21,14 +21,14 @@ class BaseSeeder extends Seeder
     public function run()
     {
         Empresa::create([
-            'nombre' => 'Comercializadora Jireh',
-            'direccion' => 'San Pablo Jocopilas, Suchitepéquez',
+            'nombre' => 'State Manager System',
+            'direccion' => 'Mazatenango, Suchitepéquez',
             'telefono' => '12345678',
             'gerente' => '',
             'email' => '',
             'website' => '',
             'logo' => '/system/logo/logo.png',
-            'slogan' => 'Comercializadora Jireh Slogan',
+            'slogan' => 'State Manager System Slogan',
             'whatsapp' => '',
         ]);
 

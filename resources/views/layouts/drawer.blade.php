@@ -7,7 +7,6 @@
                 src="{{ $empresa->logo }}"
                 alt="AdminLTE Logo"
                 class="img-size-60"
-                style="filter: hue-rotate(60deg) brightness(500%)"
             >
         </a>
     </div>
@@ -40,16 +39,4 @@
         </nav>
 
     </div>
-
-    <form action="{{ route('logout') }}" method="POST">
-        @csrf
-
-        <div class="col-12">
-            <button type="submit"
-                class="btn btn-outline-danger btn-sm btn-flat btn-block">
-                <i class="fas fa-sign-out-alt"></i>
-                {{ __('Logout') }}
-            </button>
-        </div>
-    </form>
 </aside>

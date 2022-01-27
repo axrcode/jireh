@@ -41,12 +41,6 @@
                             {{ __('Dashboard') }}
                         </h1>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Starter Page</li>
-                        </ol>
-                    </div>
                 </div>
             </div>
         </div>
@@ -187,7 +181,7 @@
                         <div class="card shadow-none">
                             <div class="card-header bg-white border-transparent pt-3 pb-0">
                                 <h3 class="card-title font-weight-bold">
-                                    Distribución de Estudiantes
+                                    Distribución de Pedidos
                                 </h3>
                             </div>
                             <div class="card-body">

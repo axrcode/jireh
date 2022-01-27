@@ -18,7 +18,7 @@ class DashboardController extends Controller
     public function __construct()
     {
         //  Company Information
-        $this->empresa = Empresa::where('nombre', env('EMPRESA_NAME'))->first();
+        $this->empresa = Empresa::first();
 
         //  Permisos
         $this->middleware('can:admin/dashboard')->only('index');
