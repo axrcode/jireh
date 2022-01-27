@@ -6,9 +6,9 @@
     </a>    
 </p>
 
-# PROYECTO DE GRADUACIÓN
+# STATE MANAGER SYSTEM
 
-Código fuente utilizado para la implementación de un sistema web para Control y Gestión de los pedidos para una Comercializadora dedicada a la producción de materiales e insumos para elaboración de productos textíles y de serigrafía. El objetivo del sistema el llevar el control de la etapa de producción que se encuentra cada pedido. Elaborado bajo el lenguaje de programación <b>PHP</b>, utilizando el framework de <b>Laravel</b>.
+Código fuente utilizado en la implementación de un sistema web para Control y Gestión de los estados de pedidos y etapas de producción para una Comercializadora dedicada a la producción de materiales e insumos para elaboración de productos textíles y de serigrafía. El objetivo del sistema el llevar el control de las etapas de producción en que se encuentra cada pedido. Elaborado bajo el lenguaje de programación <b>PHP</b>, utilizando el framework de <b>Laravel</b>.
 
 ## PAQUETES UTILIZADOS
 
@@ -30,7 +30,7 @@ composer install
 - AdminLTE
 
 ```md
-npm install && npm run dev || npm run watch
+npm install && npm run dev
 ```
 
 ### Comandos
@@ -43,7 +43,7 @@ php artisan migrate --seed
 
 ### Demo
 
-<a href="http://comercializadora-jireh.herokuapp.com" target="_blank">
+<a href="http://state-manager-system.herokuapp.com" target="_blank">
     Ir al demo
 </a>
 
